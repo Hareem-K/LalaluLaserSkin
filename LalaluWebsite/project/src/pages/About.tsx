@@ -1,0 +1,204 @@
+import React from 'react';
+import { Heart, Users, Award, Clock } from 'lucide-react';
+import Card from '../components/UI/Card';
+
+const About: React.FC = () => {
+  const values = [
+    {
+      icon: <Heart className="h-8 w-8 text-purple-600" />,
+      title: 'Passionate Care',
+      description: 'We genuinely care about your skin health and overall well-being, treating each client like family.'
+    },
+    {
+      icon: <Users className="h-8 w-8 text-purple-600" />,
+      title: 'Inclusive Environment',
+      description: 'All ages and skin types are welcome. We customize treatments to meet your unique needs.'
+    },
+    {
+      icon: <Award className="h-8 w-8 text-purple-600" />,
+      title: 'Professional Excellence',
+      description: 'Our team uses the latest techniques and premium products to deliver exceptional results.'
+    },
+    {
+      icon: <Clock className="h-8 w-8 text-purple-600" />,
+      title: 'Convenient Hours',
+      description: 'Open daily from 9 AM to 8 PM to fit treatments into your busy lifestyle.'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-purple-50 via-white to-lavender-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              About <span className="text-purple-600">Lalalu</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+              Your destination for professional skin care and laser treatments, 
+              where relaxation meets rejuvenation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Story
+              </h2>
+              <div className="space-y-4 text-lg text-gray-600">
+                <p>
+                  Lalalu Skin & Laser was founded with a simple mission: to provide a place where 
+                  people can have fun, relax, and achieve their skin goals in a welcoming environment.
+                </p>
+                <p>
+                  We believe that everyone deserves to feel confident in their own skin. Whether 
+                  you're a teenager dealing with acne, someone looking to combat signs of aging, 
+                  or simply wanting to maintain healthy, glowing skin, we're here to help.
+                </p>
+                <p>
+                  Our team of experienced aestheticians uses state-of-the-art equipment and 
+                  professional-grade products to deliver treatments that are both effective and 
+                  enjoyable. We're excited to be part of your wellness journey.
+                </p>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://images.pexels.com/photos/3985327/pexels-photo-3985327.jpeg" 
+                alt="Spa treatment room" 
+                className="rounded-2xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-purple-600 text-white p-6 rounded-xl shadow-lg">
+                <p className="text-2xl font-bold">200+</p>
+                <p className="text-sm opacity-90">Happy Clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Values
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <Card key={index} className="p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div className="flex justify-center mb-4">
+                  {value.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600">
+                  {value.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <img 
+                src="https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg" 
+                alt="Facial treatment" 
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                What We Offer
+              </h2>
+              <div className="space-y-4 text-lg text-gray-600">
+                <p>
+                  Our comprehensive menu of services addresses a wide range of skin concerns:
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <span><strong>Anti-aging treatments</strong> to reduce fine lines and wrinkles</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <span><strong>Acne treatments</strong> for clearer, healthier skin</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <span><strong>Face contouring</strong> and skin tightening</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <span><strong>Relaxing facials</strong> for maintenance and self-care</span>
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <span><strong>Advanced laser treatments</strong> for dramatic results</span>
+                  </li>
+                </ul>
+                <p>
+                  We primarily serve women clientele but welcome anyone looking to improve 
+                  their skin health and appearance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-gradient-to-r from-purple-600 to-lavender-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Meet Our Team
+          </h2>
+          <p className="text-xl mb-12 opacity-90 max-w-2xl mx-auto">
+            Our experienced aestheticians are passionate about helping you achieve your skin goals
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Users className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Licensed Aestheticians</h3>
+              <p className="opacity-90">Certified professionals with years of experience</p>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Award className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Ongoing Training</h3>
+              <p className="opacity-90">Continuously updated on the latest techniques</p>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Heart className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Personalized Care</h3>
+              <p className="opacity-90">Dedicated to your individual skin needs</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default About;
