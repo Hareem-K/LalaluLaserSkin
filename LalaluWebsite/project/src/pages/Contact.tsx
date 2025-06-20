@@ -3,6 +3,7 @@ import { MapPin, Phone, Clock, Mail, Send } from 'lucide-react';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
+import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,39 +27,50 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+  
+    try {
+      await emailjs.send(
+        "service_sjg74w8",      // e.g., "service_123abc"
+        "template_i6r469s",     // e.g., "template_456xyz"
+        formData,               // your form values: name, email, etc.
+        "jTgMDDl0Gh9lXuOh5"       // e.g., "KjdfNjsn73kd" from EmailJS
+      );
+  
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Email failed:', error);
+      alert('Failed to send message. Please try again later.');
+    }
+  
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
   };
+  
 
   const contactInfo = [
     {
-      icon: <MapPin className="h-6 w-6 text-purple-600" />,
+      icon: <MapPin className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Visit Us',
-      details: ['123 Beauty Lane', 'Wellness City, WC 12345']
+      details: ['183 Nolancrest Heights NW', 'Calgary, AB T3R 0T3']
     },
     {
-      icon: <Phone className="h-6 w-6 text-purple-600" />,
+      icon: <Phone className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Call Us',
-      details: ['(555) 123-4567', 'Available during business hours']
+      details: ['(403) 607-1443', 'Available during business hours']
     },
     {
-      icon: <Mail className="h-6 w-6 text-purple-600" />,
+      icon: <Mail className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Email Us',
       details: ['info@lalaluskin.com', 'We respond within 24 hours']
     },
     {
-      icon: <Clock className="h-6 w-6 text-purple-600" />,
+      icon: <Clock className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Hours',
       details: ['Monday - Sunday', '9:00 AM - 8:00 PM']
     }
@@ -67,13 +79,13 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-lavender-50 py-20">
+      <section className="relative bg-gradient-to-br from-[#6a4c69] via-[#a085b4] to-[#d2b9e3] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-purple-600">Us</span>
+              Contact Us
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white-600 max-w-3xl mx-auto">
               We'd love to hear from you. Get in touch with any questions or to schedule your appointment.
             </p>
           </div>
@@ -221,14 +233,15 @@ const Contact: React.FC = () => {
                   >
                     {isSubmitting ? (
                       <>
-                        <LoadingSpinner size="sm\" className="mr-2" />
+                        <LoadingSpinner size="sm" className="mr-2" />
                         Sending Message...
                       </>
                     ) : (
-                      <>
+                      <span className="inline-flex items-center">
                         Send Message
                         <Send className="ml-2 h-5 w-5" />
-                      </>
+                      </span>
+
                     )}
                   </Button>
                 </form>
@@ -237,32 +250,30 @@ const Contact: React.FC = () => {
 
             {/* Map Placeholder */}
             <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Find Us
-              </h2>
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center mb-6">
-                <div className="text-center text-gray-500">
-                  <MapPin className="h-12 w-12 mx-auto mb-2" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">123 Beauty Lane, Wellness City</p>
-                </div>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h2>
               
+              {/* Google Maps Embed */}
+              <div className="rounded-lg h-96 mb-6 overflow-hidden">
+                <iframe
+                  title="Lalalu Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.7121238676884!2d-114.1402709!3d51.1770316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537170ac0eae6fc7%3A0x65b0462b92b5e29b!2s183%20Nolancrest%20Heights%20NW%2C%20Calgary%2C%20AB%20T3R%200T3!5e0!3m2!1sen!2sca!4v1688485904722!5m2!1sen!2sca"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full border-0"
+                ></iframe>
+              </div>
+
               <div className="space-y-4">
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Parking</h3>
-                  <p className="text-gray-600">Free parking available in our lot and on the street.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Public Transportation</h3>
-                  <p className="text-gray-600">Conveniently located near bus stops and metro stations.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Accessibility</h3>
-                  <p className="text-gray-600">Our facility is fully wheelchair accessible.</p>
+                  <p className="text-gray-600">Free parking available on the street.</p>
                 </div>
               </div>
             </Card>
+
           </div>
         </div>
       </section>

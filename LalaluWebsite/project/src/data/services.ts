@@ -21,7 +21,7 @@ export const services: Service[] = [
   },
   {
     id: 'microneedling',
-    name: 'Microneedling (Morpheus 8 with RF)',
+    name: 'Morpheus 8 Microneedling',
     price: 197,
     duration: 120,
     description: 'Advanced microneedling with radiofrequency for skin tightening and rejuvenation.',

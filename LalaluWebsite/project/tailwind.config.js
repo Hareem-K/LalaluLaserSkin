@@ -37,6 +37,7 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',
+        'gradient': 'gradientMove 8s ease infinite', // ✨ NEW
       },
       keyframes: {
         fadeIn: {
@@ -50,6 +51,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        gradientMove: { // ✨ NEW
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         }
       }
     },

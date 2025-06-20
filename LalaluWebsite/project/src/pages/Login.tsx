@@ -211,7 +211,7 @@ const Login: React.FC = () => {
             >
               {isLoading ? (
                 <>
-                  <LoadingSpinner size="sm\" className="mr-2" />
+                  <LoadingSpinner size="sm" className="mr-2" />
                   {isLogin ? 'Signing In...' : 'Creating Account...'}
                 </>
               ) : (

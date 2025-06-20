@@ -3,7 +3,7 @@ import { MapPin, Phone, Clock, Mail, Instagram, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#6a4c69] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -34,13 +34,13 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300">
-                  123 Beauty Lane<br />
-                  Wellness City, WC 12345
+                  183 Nolancrest Heights NW<br />
+                  Calgary, Alberta, T3R 0T3
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-purple-400 flex-shrink-0" />
-                <span className="text-gray-300">(555) 123-4567</span>
+                <span className="text-gray-300">(403) 607-1443</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-purple-400 flex-shrink-0" />
@@ -63,8 +63,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Special Offers */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="bg-gradient-to-r from-purple-600 to-lavender-600 rounded-lg p-6 text-center">
+        <div className="border-t border-gray-700 mt-8 pt-8">
+          <div className="bg-gradient-to-r from-[#d2b9e3] to-[#b7a0c7] rounded-lg p-6 text-center">
             <h3 className="text-xl font-bold mb-2">Special Offers</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div>
@@ -84,8 +84,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Lalalu Skin & Laser. All rights reserved.</p>
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-grey-300">
+          <p>&copy; 2025 Lalalu Skin & Laser. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,26 +1,27 @@
 import React from 'react';
 import { Heart, Users, Award, Clock } from 'lucide-react';
 import Card from '../components/UI/Card';
+import { Home } from 'lucide-react'
 
 const About: React.FC = () => {
   const values = [
     {
-      icon: <Heart className="h-8 w-8 text-purple-600" />,
+      icon: <Heart className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Passionate Care',
       description: 'We genuinely care about your skin health and overall well-being, treating each client like family.'
     },
     {
-      icon: <Users className="h-8 w-8 text-purple-600" />,
+      icon: <Users className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Inclusive Environment',
       description: 'All ages and skin types are welcome. We customize treatments to meet your unique needs.'
     },
     {
-      icon: <Award className="h-8 w-8 text-purple-600" />,
+      icon: <Award className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Professional Excellence',
       description: 'Our team uses the latest techniques and premium products to deliver exceptional results.'
     },
     {
-      icon: <Clock className="h-8 w-8 text-purple-600" />,
+      icon: <Clock className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Convenient Hours',
       description: 'Open daily from 9 AM to 8 PM to fit treatments into your busy lifestyle.'
     }
@@ -29,11 +30,11 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-lavender-50 py-20">
+      <section className="relative bg-gradient-to-br from-[#d2b9e3] via-[#b4a1d3] to-lavender-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              About <span className="text-purple-600">Lalalu</span>
+              About Lalalu
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Your destination for professional skin care and laser treatments, 
@@ -74,7 +75,7 @@ const About: React.FC = () => {
                 alt="Spa treatment room" 
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-purple-600 text-white p-6 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-[#b7a0c7] text-white p-6 rounded-xl shadow-lg">
                 <p className="text-2xl font-bold">200+</p>
                 <p className="text-sm opacity-90">Happy Clients</p>
               </div>
@@ -133,23 +134,23 @@ const About: React.FC = () => {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#6a4c69] rounded-full mr-3"></div>
                     <span><strong>Anti-aging treatments</strong> to reduce fine lines and wrinkles</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#6a4c69] rounded-full mr-3"></div>
                     <span><strong>Acne treatments</strong> for clearer, healthier skin</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#6a4c69] rounded-full mr-3"></div>
                     <span><strong>Face contouring</strong> and skin tightening</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#6a4c69] rounded-full mr-3"></div>
                     <span><strong>Relaxing facials</strong> for maintenance and self-care</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-[#6a4c69] rounded-full mr-3"></div>
                     <span><strong>Advanced laser treatments</strong> for dramatic results</span>
                   </li>
                 </ul>
@@ -163,36 +164,43 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-lavender-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* About the Owner Section */}
+      <section className="py-20 bg-gradient-to-br from-[#b4a1d3] via-[#a085b4] to-[#6a4c69] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Meet Our Team
+            Meet the Owner
           </h2>
           <p className="text-xl mb-12 opacity-90 max-w-2xl mx-auto">
-            Our experienced aestheticians are passionate about helping you achieve your skin goals
+            Passionate about skincare and committed to providing professional, personalized treatments from the comfort of a home-based studio.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
-              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Users className="h-12 w-12" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Licensed Aestheticians</h3>
-              <p className="opacity-90">Certified professionals with years of experience</p>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="bg-white/10 backdrop-blur-md border border-white/30 text-white p-6">
               <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <Award className="h-12 w-12" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Ongoing Training</h3>
-              <p className="opacity-90">Continuously updated on the latest techniques</p>
+              <h3 className="text-xl font-semibold mb-2">Certified Expertise</h3>
+              <p className="opacity-90">Professionally trained and licensed to deliver safe and effective treatments.</p>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6">
+            <Card className="bg-white/10 backdrop-blur-md border border-white/30 text-white p-6">
               <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <Heart className="h-12 w-12" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Personalized Care</h3>
-              <p className="opacity-90">Dedicated to your individual skin needs</p>
+              <h3 className="text-xl font-semibold mb-2">One-on-One Care</h3>
+              <p className="opacity-90">Each session is tailored to your unique skin goals and concerns.</p>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-md border border-white/30 text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Clock className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Flexible Appointments</h3>
+              <p className="opacity-90">Evening and weekend slots available to fit your schedule.</p>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-md border border-white/30 text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Home className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Comfortable Environment</h3>
+              <p className="opacity-90">Enjoy treatments in a calm, private, and welcoming home studio.</p>
             </Card>
           </div>
         </div>
