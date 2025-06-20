@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/Adobe Express - file.png" 
+              src="/logo.png" 
               alt="Lalalu Skin & Laser" 
               className="h-16 w-auto mb-4 brightness-0 invert"
             />
