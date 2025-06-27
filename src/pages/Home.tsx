@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Clock, Users, Award, ArrowRight } from 'lucide-react';
 import Button from '../components/UI/Button';
 import Card from '../components/UI/Card';
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   const features = [
     {
       icon: <Star className="h-8 w-8 text-[#6a4c69]" />,
@@ -31,16 +36,16 @@ const Home: React.FC = () => {
   const testimonials = [
     {
       name: 'Sarah M.',
-      text: 'The Hydrofacial was amazing! My skin has never looked better. The staff is so professional and welcoming.',
+      text: 'The Hydrofacial was amazing! My skin has never looked better. So professional and welcoming.',
       rating: 5
     },
     {
       name: 'Emily R.',
-      text: 'I love coming here for my monthly facials. The atmosphere is so relaxing and the results are incredible.',
+      text: 'I love coming here for my monthly facials. The space is relaxing and the results are incredible.',
       rating: 5
     },
     {
-      name: 'Jessica L.',
+      name: 'Hareem K.',
       text: 'The microneedling treatment exceeded my expectations. My skin texture has improved dramatically!',
       rating: 5
     }
@@ -92,30 +97,27 @@ const Home: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Limited Time Offers</h2>
             <p className="text-xl opacity-90">Take advantage of these exclusive deals</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">BOGO 50% Off</h3>
-              <p className="mb-4">Buy one service, get the second 50% off</p>
+              <h3 className="text-xl font-bold mb-2">BOGO 20% Off</h3>
+              <p className="mb-4">Buy one service, get the second 20% off</p>
               <div className="text-2xl font-bold">All Services</div>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">Add Dermaplaning</h3>
-              <p className="mb-4">To any facial treatment</p>
-              <div className="text-2xl font-bold">Only $40</div>
+              <h3 className="text-xl font-bold mb-2">B2GO 50% Off</h3>
+              <p className="mb-4">Buy two services, get the third 50% off</p>
+              <div className="text-2xl font-bold">All Services</div>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-              <h3 className="text-xl font-bold mb-2">Combo Deal</h3>
-              <p className="mb-4">Combine any two services</p>
-              <div className="text-2xl font-bold">Extra $60</div>
+              <h3 className="text-xl font-bold mb-2">B3GO Free</h3>
+              <p className="mb-4">Buy three services, get the fourth one free</p>
+              <div className="text-2xl font-bold">All Services</div>
             </Card>
-          </div>
-          <div className="text-center mt-8">
-            <p className="text-lg opacity-90 flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-gift" viewBox="0 0 16 16">
-              <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zM1 4v2h6V4zm8 0v2h6V4zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5z"/>
-            </svg>
-              Free gift for first 200 customers with every service!
-            </p>
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+              <h3 className="text-xl font-bold mb-2">Free Add-On</h3>
+              <p className="mb-4">Complimentary Dermaplaning or Face Cupping add-on</p>
+              <div className="text-2xl font-bold">With Any Facial</div>
+            </Card>
           </div>
         </div>
       </section>
@@ -163,15 +165,14 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card hover className="overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg" 
-                alt="Hydrofacial" 
+                src="https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg" 
+                alt="Microneedling" 
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Hydrofacial with Face Cupping</h3>
-                <p className="text-gray-600 mb-4">Deep hydration and lymphatic drainage for instant results</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Morpheus 8 Microneedling</h3>
+                <p className="text-gray-600 mb-4">Tighten skin and smooth texture with RF-powered microneedling.</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-[#6a4c69]">$147</span>
                   <Link to="/book">
                   <Link to="/book">
                     <Button size="sm">Book Now</Button>
@@ -185,14 +186,13 @@ const Home: React.FC = () => {
             <Card hover className="overflow-hidden">
               <img 
                 src="https://images.pexels.com/photos/3985327/pexels-photo-3985327.jpeg" 
-                alt="Microneedling" 
+                alt="Microdermabrasion" 
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Microneedling (Morpheus 8)</h3>
-                <p className="text-gray-600 mb-4">Advanced RF microneedling for skin tightening and rejuvenation</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Microdermabrasion</h3>
+                <p className="text-gray-600 mb-4">Gentle exfoliation for smoother, more radiant skin.</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-[#6a4c69]">$197</span>
                   <Link to="/book">
                     <Button size="sm">Book Now</Button>
                   </Link>
@@ -202,15 +202,14 @@ const Home: React.FC = () => {
             
             <Card hover className="overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg" 
-                alt="BB Glow" 
+                src="https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg" 
+                alt="Hydrofacial" 
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">BB Glow Treatment</h3>
-                <p className="text-gray-600 mb-4">Semi-permanent makeup for flawless, glowing skin</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Hydrofacial</h3>
+                <p className="text-gray-600 mb-4">Deeply cleanses, exfoliate, and hydrates in one gentle treatment.</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-[#6a4c69]">$97</span>
                   <Link to="/book">
                     <Button size="sm">Book Now</Button>
                   </Link>

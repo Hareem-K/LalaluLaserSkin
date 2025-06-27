@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Clock, Star } from 'lucide-react';
 import { services } from '../data/services';
 import Card from '../components/UI/Card';
 
 const Services: React.FC = () => {
+  useEffect(() => {
+      // Scroll to the top when the component mounts
+      window.scrollTo(0, 0);
+  }, []);
+    
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -40,22 +45,27 @@ const Services: React.FC = () => {
       {/* Special Offers Banner */}
       <section className="bg-gradient-to-r from-[#6a4c69] to-[#a085b4] text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
             <div>
-              <p className="font-semibold">🎉 BOGO 50% Off</p>
-              <p className="text-sm opacity-90">Buy one service, get second 50% off</p>
+              <p className="font-semibold">💫 BOGO 20% Off</p>
+              <p className="text-sm opacity-90">Buy one service, get second 20% off</p>
             </div>
             <div>
-              <p className="font-semibold">✨ Add Dermaplaning</p>
-              <p className="text-sm opacity-90">To any facial for just $40</p>
+              <p className="font-semibold">✨ B2GO 50% off</p>
+              <p className="text-sm opacity-90">Buy two services, get the third 50% off</p>
             </div>
             <div>
-              <p className="font-semibold">💫 Combo Deal</p>
-              <p className="text-sm opacity-90">Combine two services for extra $60</p>
+              <p className="font-semibold">💫 B3GO free</p>
+              <p className="text-sm opacity-90">Buy three services, get the fourth free</p>
+            </div>
+            <div>
+              <p className="font-semibold">✨ Add Dermaplaning or Face Cupping</p>
+              <p className="text-sm opacity-90">To any facial for free</p>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Search + Category Filters */}
       <section className="py-8 bg-white border-b">
@@ -96,7 +106,6 @@ const Services: React.FC = () => {
                     {service.name}
                   </h3>
                   <div className="text-right ml-4">
-                    <div className="text-2xl font-bold text-[#6a4c69]">${service.price}</div>
                     <div className="flex items-center text-sm text-gray-500">
                       <Clock className="h-4 w-4 mr-1" />
                       {service.duration} min
