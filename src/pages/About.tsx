@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Heart, Users, Award, Clock } from 'lucide-react';
 import Card from '../components/UI/Card';
 import { Home } from 'lucide-react'
 
 const About: React.FC = () => {
+  useEffect(() => {
+      // Scroll to the top when the component mounts
+      window.scrollTo(0, 0);
+  }, []);
+    
+
   const values = [
     {
       icon: <Heart className="h-8 w-8 text-[#6a4c69]" />,
-      title: 'Passionate Care',
-      description: 'We genuinely care about your skin health and overall well-being, treating each client like family.'
+      title: 'Personalized Care',
+      description: 'Every treatment is thoughtfully tailored to your unique skin goals and concerns.'
     },
     {
       icon: <Users className="h-8 w-8 text-[#6a4c69]" />,
-      title: 'Inclusive Environment',
-      description: 'All ages and skin types are welcome. We customize treatments to meet your unique needs.'
+      title: 'Inclusive Approach',
+      description: 'All ages and skin types are welcome. Everyone deserves to feel confident in their skin.'
     },
     {
       icon: <Award className="h-8 w-8 text-[#6a4c69]" />,
-      title: 'Professional Excellence',
-      description: 'Our team uses the latest techniques and premium products to deliver exceptional results.'
+      title: 'Professional Standards',
+      description: 'Only trusted techniques and high-quality products are used to ensure great results.'
     },
     {
       icon: <Clock className="h-8 w-8 text-[#6a4c69]" />,
@@ -58,14 +64,13 @@ const About: React.FC = () => {
                   people can have fun, relax, and achieve their skin goals in a welcoming environment.
                 </p>
                 <p>
-                  We believe that everyone deserves to feel confident in their own skin. Whether 
+                  I believe that everyone deserves to feel confident in their own skin. Whether 
                   you're a teenager dealing with acne, someone looking to combat signs of aging, 
-                  or simply wanting to maintain healthy, glowing skin, we're here to help.
+                  or simply wanting to maintain healthy, glowing skin, I am here to help.
                 </p>
                 <p>
-                  Our team of experienced aestheticians uses state-of-the-art equipment and 
-                  professional-grade products to deliver treatments that are both effective and 
-                  enjoyable. We're excited to be part of your wellness journey.
+                  With advanced equipment and high-quality products, I take pride in offering treatments 
+                  that are both effective and tailored to your unique needs—always with care and attention.
                 </p>
               </div>
             </div>
@@ -76,7 +81,7 @@ const About: React.FC = () => {
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-[#b7a0c7] text-white p-6 rounded-xl shadow-lg">
-                <p className="text-2xl font-bold">200+</p>
+                <p className="text-2xl font-bold">100+</p>
                 <p className="text-sm opacity-90">Happy Clients</p>
               </div>
             </div>
@@ -155,8 +160,7 @@ const About: React.FC = () => {
                   </li>
                 </ul>
                 <p>
-                  We primarily serve women clientele but welcome anyone looking to improve 
-                  their skin health and appearance.
+                  Services are tailored specifically for women, with a focus on comfort, care, and results.
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Clock, Mail, Send } from 'lucide-react';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
@@ -6,6 +6,11 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
+  useEffect(() => {
+      // Scroll to the top when the component mounts
+      window.scrollTo(0, 0);
+  }, []);
+    
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -316,8 +321,8 @@ const Contact: React.FC = () => {
                 Are your treatments suitable for all skin types?
               </h3>
               <p className="text-gray-600">
-                Yes! We customize all treatments based on your individual skin type and concerns. 
-                Our experienced aestheticians will ensure you receive the most appropriate care.
+                 Yes! Treatments are customized for your unique skin type and concerns to 
+                 ensure the best possible care and results.
               </p>
             </Card>
             

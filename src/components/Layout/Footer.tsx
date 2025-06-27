@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/logo.png" 
+              src="/logo - old.png" 
               alt="Lalalu Skin & Laser" 
               className="h-16 w-auto mb-4 brightness-0 invert"
             />
@@ -65,19 +65,23 @@ const Footer: React.FC = () => {
         {/* Special Offers */}
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="bg-gradient-to-r from-[#d2b9e3] to-[#b7a0c7] rounded-lg p-6 text-center">
-            <h3 className="text-xl font-bold mb-2">Special Offers</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <h3 className="text-xl font-bold mb-6">Special Offers</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm text-center">
               <div>
-                <p className="font-semibold">Buy One Get One 50% Off</p>
-                <p>On all services</p>
+                <p className="font-semibold text-base mb-1">BOGO 20% Off</p>
+                <p>Buy one service, get the second 20% off</p>
               </div>
               <div>
-                <p className="font-semibold">Add Dermaplaning</p>
-                <p>To any facial for just $40</p>
+                <p className="font-semibold text-base mb-1">B2GO 50% Off</p>
+                <p>Buy two services, get the third 50% off</p>
               </div>
               <div>
-                <p className="font-semibold">Combine Two Services</p>
-                <p>For an extra $60</p>
+                <p className="font-semibold text-base mb-1">B3GO Free</p>
+                <p>Buy three services, get the fourth one free</p>
+              </div>
+              <div>
+                <p className="font-semibold text-base mb-1">Free Add-On</p>
+                <p>Add Dermaplaning or Cupping to any facial</p>
               </div>
             </div>
           </div>

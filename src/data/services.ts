@@ -2,17 +2,44 @@ import { Service } from '../types';
 
 export const services: Service[] = [
   {
-    id: 'bb-glow',
-    name: 'BB Glow',
-    price: 97,
+    id: 'microneedling',
+    name: 'Morpheus 8 Microneedling',
+    price: 197,
     duration: 90,
-    description: 'Semi-permanent makeup treatment that gives your skin a flawless, glowing appearance.',
+    description: 'Morpheus 8 Microneedling combines radiofrequency and microneedling to tighten skin, boost collagen, and reduce scarring, fine lines, and wrinkles.',
+    category: 'laser',
+    benefits: ['Skin tightening', 'Collagen production', 'Reduced scarring', 'Reduced Fine lines and Wrinkles']
+  },
+  {
+    id: 'microdermabrasion',
+    name: 'Microdermabrasion',
+    price: 97,
+    duration: 60,
+    description: 'Gentle diamond tip exfoliation for smoother, more radiant skin.',
     category: 'treatment',
-    benefits: ['Even skin tone', 'Natural glow', 'Reduced appearance of imperfections', 'Long-lasting results']
+    benefits: ['Skin resurfacing', 'Reduced fine lines', 'Improved texture', 'Brighter complexion']
+  },
+  {
+    id: 'hydrofacial',
+    name: 'Hydrofacial',
+    price: 147,
+    duration: 90,
+    description: 'Our Hydrofacial deeply cleanses, exfoliates, and hydrates the skin, leaving you with a smooth, radiant glow.',
+    category: 'facial',
+    benefits: ['Deep hydration', 'Improve skin tone and texture', 'Reduced fine lines and wrinkles', 'Minimized pore size']
+  },
+  {
+    id: 'dermaplaning',
+    name: 'Dermaplaning',
+    price: 57,
+    duration: 60,
+    description: 'Gentle exfoliation treatment that removes dead skin cells and peach fuzz.',
+    category: 'treatment',
+    benefits: ['Smoother skin', 'Better product absorption', 'Instant glow', 'Makeup application improvement']
   },
   {
     id: 'chemical-peels',
-    name: 'Chemical Peels',
+    name: 'Chemical Peel',
     price: 77,
     duration: 60,
     description: 'Professional chemical exfoliation to reveal smoother, brighter skin.',
@@ -20,49 +47,13 @@ export const services: Service[] = [
     benefits: ['Improved skin texture', 'Reduced fine lines', 'Brighter complexion', 'Minimized pores']
   },
   {
-    id: 'microneedling',
-    name: 'Morpheus 8 Microneedling',
-    price: 197,
-    duration: 120,
-    description: 'Advanced microneedling with radiofrequency for skin tightening and rejuvenation.',
-    category: 'laser',
-    benefits: ['Skin tightening', 'Collagen production', 'Reduced scarring', 'Anti-aging effects']
-  },
-  {
-    id: 'micronutrient-facial',
-    name: 'Micronutrient Suction Facial',
+    id: 'bb-glow',
+    name: 'BB Glow',
     price: 97,
-    duration: 75,
-    description: 'Deep cleansing facial with micronutrient infusion for optimal skin health.',
-    category: 'facial',
-    benefits: ['Deep cleansing', 'Nutrient infusion', 'Improved circulation', 'Glowing skin']
-  },
-  {
-    id: 'dermaplaning',
-    name: 'Dermaplaning',
-    price: 57,
-    duration: 45,
-    description: 'Gentle exfoliation treatment that removes dead skin cells and peach fuzz.',
+    duration: 70,
+    description: 'Semi-permanent makeup treatment that gives your skin a flawless, glowing appearance.',
     category: 'treatment',
-    benefits: ['Smoother skin', 'Better product absorption', 'Instant glow', 'Makeup application improvement']
-  },
-  {
-    id: 'microdermabrasion',
-    name: 'Microdermabrasion',
-    price: 97,
-    duration: 60,
-    description: 'Diamond-tip exfoliation for smoother, more radiant skin.',
-    category: 'treatment',
-    benefits: ['Skin resurfacing', 'Reduced fine lines', 'Improved texture', 'Brighter complexion']
-  },
-  {
-    id: 'hydrofacial',
-    name: 'Hydrofacial with Face Cupping',
-    price: 147,
-    duration: 90,
-    description: 'Multi-step treatment combining hydrodermabrasion with face cupping therapy.',
-    category: 'facial',
-    benefits: ['Deep hydration', 'Improved circulation', 'Lymphatic drainage', 'Instant results']
+    benefits: ['Even skin tone', 'Natural glow', 'Reduced appearance of imperfections', 'Long-lasting results']
   },
   {
     id: 'skin-brightening',
@@ -95,7 +86,7 @@ export const services: Service[] = [
     id: 'deep-cleansing',
     name: 'Deep Cleansing Facial',
     price: 57,
-    duration: 45,
+    duration: 60,
     description: 'Thorough cleansing treatment perfect for congested or oily skin.',
     category: 'facial',
     benefits: ['Deep pore cleansing', 'Reduced blackheads', 'Clearer skin', 'Oil control']
