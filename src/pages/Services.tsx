@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Clock, Star } from 'lucide-react';
+import { Clock, Link, Star } from 'lucide-react';
 import { services } from '../data/services';
 import Card from '../components/UI/Card';
 
@@ -99,34 +99,47 @@ const Services: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service) => (
-            <Card key={service.id} hover className="overflow-hidden">
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900 flex-1">
-                    {service.name}
-                  </h3>
-                  <div className="text-right ml-4">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Clock className="h-4 w-4 mr-1" />
-                      {service.duration} min
+            <Card key={service.id} hover className="overflow-hidden h-full flex flex-col">
+              <div className="p-6 flex flex-col flex-grow justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold text-gray-900 flex-1">
+                      {service.name}
+                    </h3>
+                    <div className="text-right ml-4">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {service.duration} min
+                      </div>
                     </div>
                   </div>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
+                    <ul className="space-y-1">
+                      {service.benefits.map((benefit, index) => (
+                        <li key={index} className="flex items-center text-sm text-gray-600">
+                          <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
-                  <ul className="space-y-1">
-                    {service.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
+
+                {/* Footer area pinned to bottom */}
+                <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
+                  <p className="text-sm text-[#a085b4] font-medium">
+                    View availability on the <a href="/book" className="underline">booking page</a>
+                  </p>
+                  <a
+                    href={`/services/${service.id}`}
+                    className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                  >
+                    <Link className="h-4 w-4 mr-2" />
+                    More Details
+                  </a>
                 </div>
-                <p className="text-sm text-[#a085b4] font-medium">
-                  View availability on the <a href="/book" className="underline">booking page</a>
-                </p>
               </div>
             </Card>
           ))}
