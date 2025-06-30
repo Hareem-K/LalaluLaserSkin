@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/logo - old.png" 
+              src="/logo - new.PNG" 
               alt="Lalalu Skin & Laser" 
-              className="h-16 w-auto mb-4 brightness-0 invert"
+              className="h-16 w-auto mb-4"
             />
             <p className="text-gray-300 mb-4 max-w-md">
               Your destination for professional skin care and laser treatments. 
