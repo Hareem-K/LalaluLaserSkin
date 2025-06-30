@@ -160,7 +160,7 @@ const About: React.FC = () => {
                   </li>
                 </ul>
                 <p>
-                  Services are tailored specifically for women, with a focus on comfort, care, and results.
+                  Services are tailored specifically for <strong>women</strong>, with a focus on comfort, care, and results.
                 </p>
               </div>
             </div>

@@ -15,7 +15,7 @@ const aftercareById: Record<string, string[]> = {
   ],
   microdermabrasion: [
     'Expect slight pinkness; will subside in a few hours.',
-    'Avoid makeup for 12 hours.',
+    'Avoid makeup for 12-24 hours.',
     'No exfoliation or strong actives for 5-7 days.',
     'Keep skin well-hydrated & use sunscreen daily.',
     'Avoid swimming pools or hot tubs for 48 hours.'
@@ -48,7 +48,7 @@ const aftercareById: Record<string, string[]> = {
     'Avoid makeup for 12-24 hours to prevent clogging.'
   ],
   'skin-brightening': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
@@ -56,27 +56,24 @@ const aftercareById: Record<string, string[]> = {
     'Stay hydrated to maintain that fresh glow!'
   ],
   'classic-facial': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'glow-facial': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'deep-cleansing': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'acne-treatment': [
@@ -84,31 +81,27 @@ const aftercareById: Record<string, string[]> = {
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'led-facial': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'oxygen-facial': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'gold-facial': [
-    'Avoid heavy makeup for 12-24 hours to let your skin breathe.',
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
-    'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
 };

@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/logo - old.png" 
+              src="/logo - new.PNG" 
               alt="Lalalu Skin & Laser" 
               className="h-[4rem] w-auto"
             />
