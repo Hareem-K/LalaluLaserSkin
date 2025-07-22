@@ -35,13 +35,13 @@ const Home: React.FC = () => {
 
   const testimonials = [
     {
-      name: 'Sarah M.',
-      text: 'The Hydrofacial was amazing! My skin has never looked better. So professional and welcoming.',
+      name: 'Saima J.',
+      text: 'Aasia’s hydrafacial was incredible. My skin feels smooth with no irritation. The service was so good I already booked my next visit.',
       rating: 5
     },
     {
       name: 'Emily R.',
-      text: 'I love coming here for my monthly facials. The space is relaxing and the results are incredible.',
+      text: 'I love coming here for microdermabrasion. The space is so relaxing and my skin always looks amazing.',
       rating: 5
     },
     {
@@ -203,11 +203,11 @@ const Home: React.FC = () => {
             <Card hover className="overflow-hidden">
               <img 
                 src="https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg" 
-                alt="Hydrofacial" 
+                alt="Hydrafacial" 
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Hydrofacial</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Hydrafacial</h3>
                 <p className="text-gray-600 mb-4">Deeply cleanses, exfoliate, and hydrates in one gentle treatment.</p>
                 <div className="flex justify-between items-center">
                   <Link to="/book">

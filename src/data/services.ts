@@ -20,11 +20,11 @@ export const services: Service[] = [
     benefits: ['Skin resurfacing', 'Reduced fine lines', 'Improved texture', 'Brighter complexion']
   },
   {
-    id: 'hydrofacial',
-    name: 'Hydrofacial',
+    id: 'hydrafacial',
+    name: 'Hydrafacial',
     price: 147,
     duration: 90,
-    description: 'Our Hydrofacial deeply cleanses, exfoliates, and hydrates the skin, leaving you with a smooth, radiant glow.',
+    description: 'Our Hydrafacial deeply cleanses, exfoliates, and hydrates the skin, leaving you with a smooth, radiant glow.',
     category: 'facial',
     benefits: ['Deep hydration', 'Improve skin tone and texture', 'Reduced fine lines and wrinkles', 'Minimized pore size']
   },

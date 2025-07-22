@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Visit Us',
-      details: ['183 Nolancrest Heights NW', 'Calgary, AB T3R 0T3']
+      details: ['Nolan Hill', 'NW Calgary, AB']
     },
     {
       icon: <Phone className="h-6 w-6 text-[#6a4c69]" />,
@@ -255,29 +255,34 @@ const Contact: React.FC = () => {
 
             {/* Map Placeholder */}
             <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h2>
-              
-              {/* Google Maps Embed */}
-              <div className="rounded-lg h-96 mb-6 overflow-hidden">
-                <iframe
-                  title="Lalalu Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.7121238676884!2d-114.1402709!3d51.1770316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537170ac0eae6fc7%3A0x65b0462b92b5e29b!2s183%20Nolancrest%20Heights%20NW%2C%20Calgary%2C%20AB%20T3R%200T3!5e0!3m2!1sen!2sca!4v1688485904722!5m2!1sen!2sca"
-                  width="100%"
-                  height="100%"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full border-0"
-                ></iframe>
-              </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h2>
 
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Parking</h3>
-                  <p className="text-gray-600">Free parking available on the street.</p>
-                </div>
+            {/* Google Maps Embed Centered on Nolan Hill */}
+            <div className="rounded-lg h-96 mb-6 overflow-hidden">
+              <iframe
+                title="Lalalu Location - Nolan Hill"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10064.744506698475!2d-114.169!3d51.175!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537170a319b0ee25%3A0x37ce6c7371e17c86!2sNolan%20Hill%2C%20Calgary%2C%20AB!5e0!3m2!1sen!2sca!4v1721598800000!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-0"
+              ></iframe>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">Parking</h3>
+                <p className="text-gray-600">Free parking available on the street.</p>
               </div>
-            </Card>
+              <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Home Based Business</h3>
+                  <p className="text-gray-600">The exact address will be shared after your appointment is confirmed.</p>
+                </div>
+            </div>
+          </Card>
+
 
           </div>
         </div>
