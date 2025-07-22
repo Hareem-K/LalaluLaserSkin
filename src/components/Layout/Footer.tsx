@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300">
-                  183 Nolancrest Heights NW<br />
-                  Calgary, Alberta, T3R 0T3
+                  Nolan Hill, NW<br />
+                  Calgary, Alberta
                 </span>
               </div>
               <div className="flex items-center space-x-3">
