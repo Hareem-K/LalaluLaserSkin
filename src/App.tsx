@@ -12,6 +12,8 @@ import BookNow from './pages/BookNow';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ServiceDetail from './pages/ServiceDetail';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
                 <Route path="/book" element={<BookNow />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/services/products" element={<ProductList />} />
+                <Route path="/services/products/:productId" element={<ProductDetail />} />
               </Routes>
             </main>
             <Footer />
