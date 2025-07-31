@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Email Us',
-      details: ['info@lalaluskin.com', 'We respond within 24 hours']
+      details: ['info@lalaluskinlaser.com', 'We respond within 24 hours']
     },
     {
       icon: <Clock className="h-6 w-6 text-[#6a4c69]" />,
