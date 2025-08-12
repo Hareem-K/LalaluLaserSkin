@@ -21,7 +21,7 @@ export const services: Service[] = [
   },
   {
     id: 'hydrafacial',
-    name: 'Hydrafacial',
+    name: 'HydraFacial',
     price: 147,
     duration: 90,
     description: 'Our Hydrafacial deeply cleanses, exfoliates, and hydrates the skin, leaving you with a smooth, radiant glow.',
