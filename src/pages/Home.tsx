@@ -207,7 +207,7 @@ const Home: React.FC = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Hydrafacial</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">HydraFacial</h3>
                 <p className="text-gray-600 mb-4">Deeply cleanses, exfoliate, and hydrates in one gentle treatment.</p>
                 <div className="flex justify-between items-center">
                   <Link to="/book">
