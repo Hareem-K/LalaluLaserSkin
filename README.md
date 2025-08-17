@@ -18,8 +18,7 @@ A full-featured spa and laser treatment website built with **React, TypeScript, 
 
 ## 🛠️ Tech Stack  
 
-- **Frontend**: React, TypeScript, Tailwind CSS  
-- **State Management**: React Context API (Auth + Booking)  
+- **Frontend**: React, TypeScript, Tailwind CSS   
 - **Deployment**: Netlify  
 
 ---
@@ -53,10 +52,9 @@ npm run dev
 ```
 src/
   ├── components/    # Reusable UI components (Cards, Buttons, etc.)
-  ├── context/       # Auth and Booking Context
   ├── pages/         # Main site pages (Home, About, Services, Contact, Book)
   ├── data/          # Services data
-  └── assets/        # Images and branding
+
 ```
 
 ---
