@@ -1,6 +1,6 @@
 # Lalalu Skin & Laser  
 
-A full-featured spa and laser treatment website built with **React, TypeScript, and Tailwind CSS**. The platform provides clients with an easy way to book appointments, view upcoming and past treatments, and contact the business directly. It also gives the business a streamlined way to manage appointments and share important information.  
+A full-featured spa and laser treatment website built with **React, TypeScript, and Tailwind CSS**. The platform provides clients with an easy way to book appointments, view upcoming and past treatments, and contact the business directly. It also gives the business a streamlined way to manage appointments and share important information with clients.  
 
 ---
 
