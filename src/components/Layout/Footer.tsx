@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               We provide a relaxing environment where you can rejuvenate and renew your skin.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+              <a href="https://www.instagram.com/lalaluskinlaser/" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
