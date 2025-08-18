@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <img 
-              src="/logo - new.PNG" 
+              src="/lalalulogo.png" 
               alt="Lalalu Skin & Laser" 
-              className="h-16 w-auto mb-4"
+              className="h-[5rem] w-auto mb-4"
             />
             <p className="text-gray-300 mb-4 max-w-md">
               Your destination for professional skin care and laser treatments. 
@@ -21,9 +21,7 @@ const Footer: React.FC = () => {
               <a href="https://www.instagram.com/lalaluskinlaser/" className="text-gray-400 hover:text-purple-400 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
-                <Facebook className="h-6 w-6" />
-              </a>
+              
             </div>
           </div>
 
