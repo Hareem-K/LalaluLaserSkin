@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Mail, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Clock, Mail, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
               <Clock className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
               <div className="text-gray-300">
                 <p>Monday - Sunday</p>
-                <p className="font-medium">9:00 AM - 8:00 PM</p>
+                <p className="font-medium">11:00 AM - 7:00 PM</p>
               </div>
             </div>
           </div>

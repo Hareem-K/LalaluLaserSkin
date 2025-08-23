@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
     {
       icon: <Clock className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Hours',
-      details: ['Monday - Sunday', '9:00 AM - 8:00 PM']
+      details: ['Monday - Sunday', '11:00 AM - 7:00 PM']
     }
   ];
 
