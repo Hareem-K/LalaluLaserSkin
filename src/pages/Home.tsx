@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     {
       icon: <Clock className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Flexible Hours',
-      description: 'Open daily from 9 AM to 8 PM to accommodate your busy schedule.'
+      description: 'Open daily from 11 AM to 7 PM to accommodate your busy schedule.'
     },
     {
       icon: <Users className="h-8 w-8 text-[#6a4c69]" />,

@@ -29,7 +29,7 @@ const About: React.FC = () => {
     {
       icon: <Clock className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Convenient Hours',
-      description: 'Open daily from 9 AM to 8 PM to fit treatments into your busy lifestyle.'
+      description: 'Open daily from 11 AM to 7 PM to fit treatments into your busy lifestyle.'
     }
   ];
 
