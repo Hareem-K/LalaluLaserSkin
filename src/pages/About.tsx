@@ -2,6 +2,21 @@ import React, { useEffect } from 'react';
 import { Heart, Users, Award, Clock } from 'lucide-react';
 import Card from '../components/UI/Card';
 import { Home } from 'lucide-react'
+import { Helmet } from 'react-helmet-async';
+
+<Helmet>
+  <title>About Lalalu Skin & Laser | Expert Aesthetic Care in Calgary</title>
+  <meta
+    name="description"
+    content="We deliver expert aesthetic care with premium products and modern equipment. Inclusive, professional, and results-driven."
+  />
+  <link rel="canonical" href="https://lalaluskinlaser.com/about" />
+  <meta property="og:title" content="About Lalalu Skin & Laser" />
+  <meta property="og:description" content="Inclusive, professional, and results-driven aesthetic care in Calgary." />
+  <meta property="og:url" content="https://lalaluskinlaser.com/about" />
+  <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+</Helmet>
+
 
 const About: React.FC = () => {
   useEffect(() => {

@@ -2,6 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Clock, Link, Star } from 'lucide-react';
 import { services } from '../data/services';
 import Card from '../components/UI/Card';
+import { Helmet } from 'react-helmet-async';
+
+<Helmet>
+  <title>Services & Pricing | Facials, Microneedling, Laser | Lalalu Skin & Laser</title>
+  <meta
+    name="description"
+    content="Explore facials, hydrofacials, RF microneedling, BB Glow, and advanced laser treatments. Transparent pricing and easy online booking."
+  />
+  <link rel="canonical" href="https://lalaluskinlaser.com/services" />
+  <meta property="og:title" content="Services & Pricing | Lalalu Skin & Laser" />
+  <meta property="og:description" content="Facials, hydrofacials, RF microneedling, BB Glow, and laser. Transparent pricing." />
+  <meta property="og:url" content="https://lalaluskinlaser.com/services" />
+  <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+</Helmet>
+
 
 const Services: React.FC = () => {
   useEffect(() => {
