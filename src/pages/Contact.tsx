@@ -4,6 +4,54 @@ import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import emailjs from 'emailjs-com';
+import { Helmet } from 'react-helmet-async';
+
+<Helmet>
+  <title>Contact Us | Lalalu Skin & Laser (Calgary, AB)</title>
+  <meta
+    name="description"
+    content="Have questions or ready to book? Contact Lalalu Skin & Laser in Calgary. Open daily 9 AM–8 PM."
+  />
+  <link rel="canonical" href="https://lalaluskinlaser.com/contact" />
+  <meta property="og:title" content="Contact Lalalu Skin & Laser" />
+  <meta property="og:description" content="Reach our Calgary clinic. Open daily 9 AM–8 PM." />
+  <meta property="og:url" content="https://lalaluskinlaser.com/contact" />
+  <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+
+  {/* LocalBusiness schema for rich results */}
+  <script type="application/ld+json">
+  {JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Lalalu Skin & Laser',
+    image: 'https://lalalulaserskin.netlify.app/og-image.jpg',
+    url: 'https://lalalulaserskin.netlify.app/',
+    telephone: '+1-403-607-1443',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '183 Nolancrest Heights NW',
+      addressLocality: 'Calgary',
+      addressRegion: 'AB',
+      postalCode: 'T3R 0T3',
+      addressCountry: 'CA'
+    },
+    openingHoursSpecification: [{
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'
+      ],
+      opens: '09:00',
+      closes: '20:00'
+    }],
+    sameAs: [
+      // add your socials when ready
+      // 'https://www.instagram.com/yourhandle',
+      // 'https://www.facebook.com/yourpage'
+    ]
+  })}
+  </script>
+</Helmet>
+
 
 const Contact: React.FC = () => {
   useEffect(() => {

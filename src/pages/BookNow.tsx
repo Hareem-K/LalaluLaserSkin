@@ -1,4 +1,19 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+
+<Helmet>
+  <title>Book an Appointment | Lalalu Skin & Laser (Calgary)</title>
+  <meta
+    name="description"
+    content="Book your facial, hydrofacial, microneedling, or laser treatment online. Choose a time that works for you."
+  />
+  <link rel="canonical" href="https://lalaluskinlaser.com/book" />
+  <meta property="og:title" content="Book an Appointment | Lalalu Skin & Laser" />
+  <meta property="og:description" content="Reserve your skin treatment online in minutes." />
+  <meta property="og:url" content="https://lalaluskinlaser.com/book" />
+  <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+</Helmet>
+
 
 const BookNow: React.FC = () => {
   useEffect(() => {
