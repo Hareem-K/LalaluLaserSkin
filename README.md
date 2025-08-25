@@ -33,7 +33,7 @@ A full-featured spa and laser treatment website built with **React, TypeScript, 
 
 ```bash
 # Clone the repo
-git clone https://github.com/Hareem-K/Lalalu.git
+git clone https://github.com/Hareem-K/LalaluLaserSkin.git
 
 # Navigate into the project
 cd Lalalu
