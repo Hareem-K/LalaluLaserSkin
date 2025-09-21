@@ -51,18 +51,19 @@ const Home: React.FC = () => {
   const testimonials = [
     {
       name: 'Saima J.',
-      text: 'Aasia’s hydrafacial was incredible. My skin feels smooth with no irritation. The service was so good I already booked my next visit.',
+      text: 'Cozy place with exceptional service! Aasia explained every step of the process and did an excellent job with my face! My first ever hydra facial with her and she made me feel so comfortable. My skin feels rejuvenated. I have already booked my next appointment with her for Derma-skin Brasion followed by hydra facial.',
       rating: 5
     },
     {
-      name: 'Emily R.',
-      text: 'I love coming here for microdermabrasion. The space is so relaxing and my skin always looks amazing.',
+      name: 'Tabbasum A.',
+      text: 'Best esthetian in NW. Aasia is full of knowledge with experience of 4+ years. She have best knowledge about microneedling. I used to go to her past 1 year.',
       rating: 5
     },
     {
       name: 'Hareem K.',
-      text: 'The microneedling treatment exceeded my expectations. My skin texture has improved dramatically!',
+      text: 'I’ve had a few microneedling sessions here and I can honestly say I see such a big difference in my skin. My pigmentation has noticeably faded, my texture feels smoother, and my overall complexion just looks healthier and more even. I’m so happy with the results and excited to continue seeing improvements with every treatment!',
       rating: 5
+
     }
   ];
 

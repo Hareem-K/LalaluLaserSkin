@@ -5,4 +5,30 @@
   <url><loc>https://lalaluskinlaser.com/services</loc></url>
   <url><loc>https://lalaluskinlaser.com/contact</loc></url>
   <url><loc>https://lalaluskinlaser.com/book</loc></url>
+
+  <!-- Service detail pages -->
+  <url><loc>https://lalaluskinlaser.com/services/microneedling</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/microdermabrasion</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/hydrafacial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/dermaplaning</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/chemical-peels</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/bb-glow</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/vitamin-c-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/skin-brightening</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/classic-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/glow-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/deep-cleansing</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/acne-treatment</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/led-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/oxygen-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/gold-facial</loc></url>
+  <url><loc>https://lalaluskinlaser.com/services/slimming-treatment</loc></url>
+
+  <!-- Concern pages -->
+  <url><loc>https://lalaluskinlaser.com/concerns/acne</loc></url>
+  <url><loc>https://lalaluskinlaser.com/concerns/brightness</loc></url>
+  <url><loc>https://lalaluskinlaser.com/concerns/pigmentation</loc></url>
+  <url><loc>https://lalaluskinlaser.com/concerns/sensitivity</loc></url>
+  <url><loc>https://lalaluskinlaser.com/concerns/aging</loc></url>
+  <url><loc>https://lalaluskinlaser.com/concerns/dryness</loc></url>
 </urlset>
