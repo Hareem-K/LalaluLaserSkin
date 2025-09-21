@@ -11,6 +11,7 @@ import BookNow from './pages/BookNow';
 import ServiceDetail from './pages/ServiceDetail';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
+import ConcernPage from './pages/concerns/ConcernPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/book" element={<BookNow />} />
                 <Route path="/services/products" element={<ProductList />} />
                 <Route path="/services/products/:productId" element={<ProductDetail />} />
+                <Route path="/concerns/:slug" element={<ConcernPage />} />
               </Routes>
             </main>
             <Footer />

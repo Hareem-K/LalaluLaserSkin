@@ -31,7 +31,8 @@ const Services: React.FC = () => {
     { id: 'all', name: 'All Services' },
     { id: 'facial', name: 'Facials' },
     { id: 'laser', name: 'Laser Treatments' },
-    { id: 'treatment', name: 'Specialty Treatments' }
+    { id: 'treatment', name: 'Specialty Treatments' },
+    { id: 'slimming', name: 'Body Slimming' }
   ];
 
   const filteredServices = services.filter((service) => {
@@ -40,6 +41,13 @@ const Services: React.FC = () => {
                           service.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // Put any special full-width service IDs here
+  const specialServiceIds = new Set(['slimming-treatment']);
+
+  const normalServices = filteredServices.filter(s => !specialServiceIds.has(s.id));
+  const specialServices = filteredServices.filter(s => specialServiceIds.has(s.id));
+
 
   return (
     <div className="min-h-screen">
@@ -113,7 +121,7 @@ const Services: React.FC = () => {
       {/* Services Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service) => (
+          {normalServices.map((service) => (
             <Card key={service.id} hover className="overflow-hidden h-full flex flex-col">
               <div className="p-6 flex flex-col flex-grow justify-between">
                 <div>
@@ -147,14 +155,63 @@ const Services: React.FC = () => {
                   <p className="text-sm text-[#a085b4] font-medium">
                     View availability on the <a href="/book" className="underline">booking page</a>
                   </p>
-                  <a
-                    href={`/services/${service.id}`}
-                    className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
-                  >
-                    <Link className="h-4 w-4 mr-2" />
-                    More Details
-                  </a>
+
+                  {/* If the service has tiers, show a left-aligned mini price list and NO right price block */}
+                  {service.tiers && service.tiers.length > 0 ? (
+                    <div className="space-y-3">
+                      <div className="space-y-1">
+                        {service.tiers.map((tier) => (
+                          <div key={tier.name} className="flex items-baseline justify-between text-sm">
+                            <span className="text-gray-700">{tier.name}</span>
+                            <span className="flex items-baseline gap-2">
+                              {typeof tier.originalPrice === 'number' && (
+                                <span className="text-gray-400 line-through">${tier.originalPrice}</span>
+                              )}
+                              <span className="font-semibold text-[#6a4c69]">${tier.price}</span>
+                              {typeof tier.originalPrice === 'number' && (
+                                <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
+                                  Sale
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <a
+                        href={`/services/${service.id}`}
+                        className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                      >
+                        <Link className="h-4 w-4 mr-2" />
+                        More Details
+                      </a>
+                    </div>
+                  ) : (
+                    // No tiers: keep your existing left button + right price/sale block
+                    <div className="flex items-center justify-between">
+                      <a
+                        href={`/services/${service.id}`}
+                        className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                      >
+                        <Link className="h-4 w-4 mr-2" />
+                        More Details
+                      </a>
+
+                      {service.originalPrice ? (
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
+                          <span className="text-lg font-bold text-red-500">${service.price}</span>
+                          <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
+                            Sale
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-lg font-bold text-[#6a4c69]">${service.price}</span>
+                      )}
+                    </div>
+                  )}
                 </div>
+
               </div>
             </Card>
           ))}
@@ -163,6 +220,116 @@ const Services: React.FC = () => {
           )}
         </div>
       </section>
+
+      
+      {/* new section */}
+      {/* Special full-width section (e.g., Body & Face Slimming) */}
+      {specialServices.length > 0 && (
+        <section className="pb-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {specialServices.map((service) => (
+              <Card
+                key={service.id}
+                hover
+                className="overflow-hidden w-full border-2 border-[#6a4c69]/20 bg-gradient-to-r from-white via-[#f8f5fb] to-white"
+              >
+                <div className="p-8 md:p-10">
+                  {/* Header: big title + “Not a facial” badge */}
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div>
+                      <div className="inline-flex items-center gap-2 mb-3">
+                        <span className="inline-flex items-center rounded-full bg-[#6a4c69]/10 text-[#6a4c69] text-xs font-semibold px-3 py-1">
+                          Body & Face Slimming
+                        </span>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                        {service.name}
+                      </h2>
+                      <p className="mt-3 text-gray-600 max-w-3xl">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div className="text-right shrink-0">
+                      <div className="flex items-center justify-end text-sm text-gray-500">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {service.duration} min
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  {service.benefits?.length > 0 && (
+                    <div className="mt-6">
+                      <h3 className="font-semibold text-gray-900 mb-2">Benefits</h3>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        {service.benefits.map((b, i) => (
+                          <li key={i} className="flex items-start text-sm text-gray-700">
+                            <Star className="h-3 w-3 text-[#6a4c69] mr-2 mt-1" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Tiers as a clear price table */}
+                  {service.tiers && service.tiers.length > 0 && (
+                    <div className="mt-8">
+                      <h3 className="font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
+                      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+                        <div className="divide-y divide-gray-100">
+                          {service.tiers.map((tier) => (
+                            <div
+                              key={tier.name}
+                              className="flex items-center justify-between px-4 py-3"
+                            >
+                              <span className="text-gray-800">{tier.name}</span>
+                              <span className="flex items-baseline gap-2">
+                                {typeof tier.originalPrice === 'number' && (
+                                  <span className="text-gray-400 line-through">${tier.originalPrice}</span>
+                                )}
+                                <span className="font-semibold text-[#6a4c69]">
+                                  ${tier.price}
+                                </span>
+                                {typeof tier.originalPrice === 'number' && (
+                                  <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
+                                    Sale
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CTAs */}
+                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={`/services/${service.id}`}
+                      className="inline-flex items-center px-5 py-2.5 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                    >
+                      <Link className="h-4 w-4 mr-2" />
+                      More Details
+                    </a>
+                    <a
+                      href="/book"
+                      className="inline-flex items-center px-5 py-2.5 bg-[#6a4c69] text-white rounded-full font-semibold text-sm hover:brightness-110 transition-colors duration-200"
+                    >
+                      Book Now
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
+
+
+
     </div>
   );
 };

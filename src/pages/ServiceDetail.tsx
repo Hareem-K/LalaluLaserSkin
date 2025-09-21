@@ -3,8 +3,19 @@ import { useParams, Link } from 'react-router-dom';
 import { services } from '../data/services';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
+import { ArrowLeft, Star } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
-const aftercareById: Record<string, string[]> = {
+type Aftercare =
+  | string[]
+  | {
+      body: string[];
+      face: string[];
+      general?: string[];
+      contraindications?: string[];
+    };
+
+const aftercareById: Record<string, Aftercare> = {
   microneedling: [
     'Expect mild redness & swelling for 1-3 days, possibly light flaking.',
     'Avoid direct sun exposure & heat (saunas, workouts) for 48 hours.',
@@ -20,7 +31,7 @@ const aftercareById: Record<string, string[]> = {
     'Keep skin well-hydrated & use sunscreen daily.',
     'Avoid swimming pools or hot tubs for 48 hours.'
   ],
-  hydrofacial: [
+  hydrafacial: [
     'Avoid makeup for 12-24 hours.',
     'No exfoliating products (AHAs/BHAs) for 48 hours.',
     'Drink plenty of water to boost results.',
@@ -53,6 +64,13 @@ const aftercareById: Record<string, string[]> = {
     'Use gentle cleansers and moisturizers.',
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
     'Avoid exfoliating products (retinols, AHAs, scrubs) for 3-5 days.',
+    'Stay hydrated to maintain that fresh glow!'
+  ],
+  'vitamin-c-facial': [
+    'Avoid heavy makeup for 12 hours to let your skin breathe.',
+    'Avoid hot showers, saunas, or steam rooms for 24 hours.',
+    'Use gentle cleansers and moisturizers.',
+    'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
   'classic-facial': [
@@ -104,13 +122,43 @@ const aftercareById: Record<string, string[]> = {
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
-};
+  'slimming-treatment': {
+    body: [
+      'Do not eat for 1 hour after the session.',
+      'Shower after 4–6 hours (avoid very hot water).',
+      'Drink at least 1.5L of water within the day to support lymphatic drainage.',
+      'Avoid alcohol for 48 hours.',
+      'No sauna, hot springs, steam rooms, or strenuous exercise for 3 days.',
+      'Avoid cold or very spicy foods; follow a low-fat, low-starch, low-sugar diet for the next 48–72 hours.',
+      'Do at least 20 minutes of light–moderate exercise (e.g., brisk walking) on the same day to stimulate lymph detox.',
+    ],
+    face: [
+      'Avoid washing face with overheated water for 3 days',
+      'Keep skin hydrated',
+      'Apply broad-spectrum SPF 30–50 daily; avoid direct sun exposure.',
+      'Avoid sauna steaming, hot springs, or other strenuous exercises for 7 days',
+      'It is better not to use alcohol, AHA, or other exfoliating products within 3 days',
+      'Use a gentle, hydrating cleanser for the next 24–48 hours',
+      'Avoid facial waxing, threading, or laser on the area for 7 days',
+      'Stay well hydrated and avoid alcohol for 48 hours',
+    ],
 
-const generalTips = [
-  'Keep your skin hydrated.',
-  'Wear broad-spectrum SPF every day (even when cloudy).',
-  'Schedule your next treatment as recommended for the best long-term results!'
-];
+    general: [
+      'Typical result range: ~1–2.5 inches loss per area within ~4 weeks (results vary by individual and treatment plan).',
+      'For lasting results, maintain a balanced diet and regular exercise; follow your customized session plan (often a series of 10–12 sessions).',
+    ],
+    contraindications: [
+      'Pregnant or breastfeeding.',
+      'Heart disease or implanted heart pacemaker.',
+      'Unhealed surgical wounds or currently in post-op recovery (including cosmetic surgery).',
+      'Epilepsy.',
+      'Severe diabetes.',
+      'Hyperthyroidism.',
+      'Malignant tumours.',
+    ],
+  },
+
+};
 
 const ServiceDetail: React.FC = () => {
   const { serviceId } = useParams();
@@ -124,58 +172,203 @@ const ServiceDetail: React.FC = () => {
     );
   }
 
-  const aftercare = aftercareById[service.id] || [
-    'Avoid heavy makeup for 12-24 hours.',
-    'Use SPF daily to protect your skin.',
-    'Avoid saunas and intense heat for 24 hours.',
-    'Use gentle skincare products.'
-  ];
+  // Get the aftercare entry
+  const entry = aftercareById[service.id];
+
+  const isSectioned =
+    entry && typeof entry === 'object' && !Array.isArray(entry);
+
+  // Fallback for legacy array aftercare
+  const fallbackArray =
+    (!entry || Array.isArray(entry)) ? (entry as string[] | undefined) : undefined;
+
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <Card className="p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{service.name}</h1>
-          <span>
-            <div className="mb-6">
-                <p className="text-gray-600">{service.duration} minutes</p>
-            </div>
-          </span>
-          <p className="text-gray-700 mb-4">{service.description}</p>
-          
-          <div className="mb-6">
-            <h3 className="font-semibold text-gray-900 mb-2">Key Benefits:</h3>
-            <ul className="space-y-1">
-              {service.benefits.map((benefit, index) => (
-                <li key={index} className="text-sm text-gray-600">• {benefit}</li>
-              ))}
-            </ul>
+    <>
+      <Helmet>
+        <title>{service.name} | Lalalu Skin & Laser</title>
+        <meta
+          name="description"
+          content={`Discover the benefits of ${service.name} at Lalalu Skin & Laser. ${service.description}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://lalaluskinlaser.com/services/${service.id}`}
+        />
+      </Helmet>
+
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="mb-4 -mt-2">
+            <Link
+              to="/services"
+              className="inline-flex items-center text-sm text-[#6a4c69] hover:underline"
+            >
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              Back to Services
+            </Link>
           </div>
 
-          <Link to="/book">
-            <Button className="mt-4">Book Now</Button>
-          </Link>
-        </Card>
+          <Card className="p-8 flex flex-col">
+            
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">{service.name}</h1>
 
-        <Card className="p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Aftercare Instructions</h2>
-            <ul className="space-y-2 list-disc list-inside text-gray-700">
-                {aftercare.map((tip, index) => (
-                <li key={index}>{tip}</li>
-                ))}
-            </ul>
-            <div className="mt-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Universal Tips</h3>
-                <ul className="space-y-2 list-disc list-inside text-gray-700">
-                {generalTips.map((tip, index) => (
-                    <li key={index}>{tip}</li>
-                ))}
-                </ul>
+            <div className="mb-6">
+              <p className="text-gray-600">{service.duration} minutes</p>
             </div>
-        </Card>
 
+            <p className="text-gray-700 mb-4">{service.description}</p>
+
+            <div className="mb-4">
+              <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
+              <ul className="space-y-1">
+                {service.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-center text-sm text-gray-600">
+                    <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Footer with button left, price right */}
+            {/* CTA + Pricing */}
+            <div className="mt-auto">
+              {service.tiers && service.tiers.length > 0 ? (
+                <>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
+                  <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+                    <div className="divide-y divide-gray-100">
+                      {service.tiers.map((tier) => (
+                        <div key={tier.name} className="px-4 py-4">
+                          <div className="flex items-baseline justify-between">
+                            <span className="text-gray-900 font-medium">{tier.name}</span>
+                            <span className="flex items-baseline gap-2">
+                              {typeof tier.originalPrice === 'number' && (
+                                <span className="text-gray-400 line-through">${tier.originalPrice}</span>
+                              )}
+                              <span className="text-lg font-semibold text-[#6a4c69]">${tier.price}</span>
+                              {typeof tier.originalPrice === 'number' && (
+                                <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
+                                  Sale
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                          {tier.description && (
+                            <p className="mt-2 text-sm text-gray-600">{tier.description}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end">
+                    <Link to="/book">
+                      <Button className="mt-4">Book Now</Button>
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-center justify-between">
+                  <Link to="/book">
+                    <Button className="mt-4">Book Now</Button>
+                  </Link>
+
+                  {typeof service.originalPrice === 'number' ? (
+                    <div className="flex items-baseline gap-2 mt-4">
+                      <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
+                      <span className="text-2xl font-bold text-red-500">${service.price}</span>
+                      <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
+                        Sale
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="text-2xl font-bold text-[#6a4c69] mt-4">
+                      ${service.price}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+
+          </Card>
+
+
+          <Card className="p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Aftercare Instructions</h2>
+
+            {/* Sectioned rendering for Body/Face/General/Contraindications */}
+            {isSectioned ? (
+              <>
+                {/* Body */}
+                {'body' in (entry as any) && (entry as any).body?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Body Aftercare</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).body.map((tip: string, idx: number) => (
+                        <li key={`body-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Face */}
+                {'face' in (entry as any) && (entry as any).face?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Face Aftercare</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).face.map((tip: string, idx: number) => (
+                        <li key={`face-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* General */}
+                {'general' in (entry as any) && (entry as any).general?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">General Tips</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).general.map((tip: string, idx: number) => (
+                        <li key={`general-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Contraindications */}
+                {'contraindications' in (entry as any) && (entry as any).contraindications?.length > 0 && (
+                  <div className="mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Who Should Not Use This Treatment</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).contraindications.map((tip: string, idx: number) => (
+                        <li key={`contra-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </>
+            ) : (
+              // Legacy array rendering (all your other services keep working)
+              <ul className="space-y-2 list-disc list-inside text-gray-700">
+                {(fallbackArray ?? [
+                  'Avoid heavy makeup for 12–24 hours.',
+                  'Use SPF daily to protect your skin.',
+                  'Avoid saunas and intense heat for 24 hours.',
+                  'Use gentle skincare products.',
+                ]).map((tip, index) => (
+                  <li key={index}>{tip}</li>
+                ))}
+              </ul>
+            )}
+          </Card>
+
+        </div>
       </div>
-    </div>
+    
+    </>
   );
 };
 

@@ -1,1 +1,8 @@
-/*    /index.html   200
+# --- Force everything to the primary domain (apex, https) ---
+https://lalalulaserskin.netlify.app/*    https://lalaluskinlaser.com/:splat   301!
+https://www.lalaluskinlaser.com/*        https://lalaluskinlaser.com/:splat   301!
+http://www.lalaluskinlaser.com/*         https://lalaluskinlaser.com/:splat   301!
+http://lalaluskinlaser.com/*             https://lalaluskinlaser.com/:splat   301!
+
+# --- SPA fallback (must be AFTER the redirects above) ---
+/*   /index.html   200
