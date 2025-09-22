@@ -354,11 +354,25 @@ const Contact: React.FC = () => {
                 Do I need to book in advance?
               </h3>
               <p className="text-gray-600">
-                Yes, we recommend booking in advance to secure your preferred time slot. 
-                You can book online or call us directly.
+                Yes, all bookings are by appointment only. Please book in advance online or by calling directly.
               </p>
             </Card>
-            
+
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                What payment methods do you accept?
+              </h3>
+              <p className="text-gray-600 mb-4">
+                We accept most major cards, mobile wallets, and cash.
+              </p>
+              <img
+                src="/payment_methods.png"
+                alt="Accepted payment methods"
+                className="max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+              />
+            </Card>
+
+ 
             <Card className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 What should I expect during my first visit?

@@ -186,7 +186,7 @@ const Home: React.FC = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Morpheus 8 Microneedling</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Morpheus8 Microneedling</h3>
                 <p className="text-gray-600 mb-4">Tighten skin and smooth texture with RF-powered microneedling.</p>
                 <div className="flex justify-between items-center">
                   <Link to="/book">

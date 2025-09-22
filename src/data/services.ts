@@ -3,7 +3,7 @@ import { Service } from '../types';
 export const services: Service[] = [
   {
     id: 'microneedling',
-    name: 'Morpheus 8 RF Microneedling',
+    name: 'Morpheus8 RF Microneedling',
     price: 200,
     originalPrice: 300,
     duration: 90,
@@ -20,7 +20,7 @@ export const services: Service[] = [
     ],
     tiers: [
       { name: 'Microneedling',  price: 150, description: 'Classic microneedling to refine texture and minimize pores.' },
-      { name: 'Morpheus 8 Microneedling with RF', price: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
+      { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
     ]
   },
   {
