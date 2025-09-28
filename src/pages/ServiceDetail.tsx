@@ -182,6 +182,22 @@ const ServiceDetail: React.FC = () => {
   const fallbackArray =
     (!entry || Array.isArray(entry)) ? (entry as string[] | undefined) : undefined;
 
+  // right above `return (<>`
+  const BASE = 'https://lalaluskinlaser.com';
+  const url = `${BASE}/services/${service.id}`;
+
+  // choose a share image (fallback to site OG)
+  const ogImage = `${BASE}/og-image.jpg`;
+
+  // derive a price for previews / schema
+  const tierPrices = Array.isArray(service.tiers) ? service.tiers.map(t => Number(t.price)).filter(Boolean) : [];
+  const lowestPrice = tierPrices.length ? Math.min(...tierPrices) : Number(service.price);
+  // near the top of ServiceDetail, after you have `service`
+  type Tier = { name: string; price: number; originalPrice?: number; description?: string };
+
+  const tiers: Tier[] = Array.isArray(service.tiers) ? service.tiers : [];
+  const hasTiers = tiers.length > 0;
+
 
   return (
     <>
@@ -191,11 +207,77 @@ const ServiceDetail: React.FC = () => {
           name="description"
           content={`Discover the benefits of ${service.name} at Lalalu Skin & Laser. ${service.description}`}
         />
-        <link
-          rel="canonical"
-          href={`https://lalaluskinlaser.com/services/${service.id}`}
-        />
+        <link rel="canonical" href={url} />
+        <meta name="robots" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="Lalalu Skin & Laser" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:title" content={`${service.name} | Lalalu Skin & Laser`} />
+        <meta property="og:description" content={service.description} />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${service.name} at Lalalu Skin & Laser`} />
+        {/* Optional OG product price (nice-to-have) */}
+        {Number.isFinite(lowestPrice) && (
+          <>
+            <meta property="product:price:amount" content={String(lowestPrice)} />
+            <meta property="product:price:currency" content="CAD" />
+          </>
+        )}
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* Breadcrumbs JSON-LD */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE}/services` },
+            { "@type": "ListItem", "position": 3, "name": service.name, "item": url }
+          ]
+        })}</script>
+
+        {/* Service schema with offers (tiers if present) */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": service.name,
+          "description": service.description,
+          "brand": { "@type": "Brand", "name": "Lalalu Skin & Laser" },
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Lalalu Skin & Laser",
+            "address": { "@type": "PostalAddress", "addressLocality": "Calgary", "addressRegion": "AB", "addressCountry": "CA" },
+            "url": BASE,
+            "image": `${BASE}/logo.png`
+          },
+          "areaServed": { "@type": "City", "name": "Calgary" },
+          "url": url,
+          "offers": hasTiers
+            ? tiers.map((t: any) => ({
+                "@type": "Offer",
+                "name": t.name,
+                "price": t.price,
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock",
+                "url": `${BASE}/book`
+              }))
+            : [{
+                "@type": "Offer",
+                "price": service.price,
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock",
+                "url": `${BASE}/book`
+              }]
+        })}</script>
       </Helmet>
+
 
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-8">
