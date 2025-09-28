@@ -306,7 +306,7 @@ const Products: React.FC = () => {
             </p>
             <div className="mt-8">
                 <a href="/book">
-                <Button size="lg" className="bg-white text-[#0F1E3D] hover:bg-gray-100">
+                <Button size="lg" className="bg-white !text-[#0F1E3D] hover:bg-gray-100">
                     Book Your Appointment
                 </Button>
                 </a>
@@ -478,7 +478,7 @@ const Products: React.FC = () => {
                 We’ll recommend the right products and protocols for your skin’s rhythm.
             </p>
             <a href="/book">
-                <Button size="lg" className="bg-white text-[#0F1E3D] hover:bg-gray-100">
+                <Button size="lg" className="bg-white !text-[#0F1E3D] hover:bg-gray-100">
                 Book Your Appointment
                 </Button>
             </a>

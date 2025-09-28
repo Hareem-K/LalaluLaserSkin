@@ -390,7 +390,7 @@ const Home: React.FC = () => {
 
                     <div className="mt-6">
                       <Link to="/products">
-                        <Button size="lg" className="bg-white text-[#0F1E3D] hover:bg-gray-100">
+                        <Button size="lg" className="bg-white !text-[#0F1E3D] hover:bg-gray-100">
                           Learn about Circadia
                         </Button>
                       </Link>
