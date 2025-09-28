@@ -345,7 +345,7 @@ const Products: React.FC = () => {
                 <img src={IMG.mask1} alt="In-clinic experience" className="w-full h-56 md:h-64 object-cover" />
                 </Card>
                 <Card className="overflow-hidden">
-                <img src={IMG.macro} alt="Formula texture" className="w-full h-40 md:h-48 object-cover" />
+                <img src={IMG.lifestyle} alt="Formula texture" className="w-full h-40 md:h-48 object-cover" />
                 </Card>
                 <Card className="overflow-hidden">
                 <img src={IMG.p1} alt="Circadia products" className="w-full h-40 md:h-48 object-cover" />
