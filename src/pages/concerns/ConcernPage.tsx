@@ -40,6 +40,11 @@ const ConcernPage: React.FC = () => {
   const isDiscount = (orig?: number, price?: number) =>
   typeof orig === 'number' && typeof price === 'number' && orig > price;
 
+  const BASE = 'https://lalaluskinlaser.com';
+  const canonical = `${BASE}/concerns/${slug}`;
+  const rawImg = concern.image || '/og-image.jpg';
+  const ogImage = rawImg.startsWith('http') ? rawImg : `${BASE}${rawImg}`;
+
   return (
     <>
         <Helmet>
@@ -48,10 +53,29 @@ const ConcernPage: React.FC = () => {
                 name="description"
                 content={`Learn more about ${concern.title} and recommended treatments at Lalalu Skin & Laser.`}
             />
-            <link
-                rel="canonical"
-                href={`https://lalaluskinlaser.com/concerns/${slug}`}
-            />
+            <link rel="canonical" href={canonical} />
+
+            {/* Open Graph only */}
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content={`${concern.title} | Lalalu Skin & Laser`} />
+            <meta property="og:description" content={`Learn more about ${concern.title} and recommended treatments at Lalalu Skin & Laser.`} />
+            <meta property="og:url" content={canonical} />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:site_name" content="Lalalu Skin & Laser" />
+            <meta property="og:image:alt" content={`${concern.title} — Lalalu Skin & Laser`} />
+
+
+            {/* Breadcrumbs JSON-LD */}
+            <script type="application/ld+json">{JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lalaluskinlaser.com/" },
+                { "@type": "ListItem", "position": 2, "name": concern.title, "item": canonical }
+                ]
+            })}</script>
         </Helmet>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

@@ -4,20 +4,6 @@ import { services } from '../data/services';
 import Card from '../components/UI/Card';
 import { Helmet } from 'react-helmet-async';
 
-<Helmet>
-  <title>Services & Pricing | Facials, Microneedling, Laser | Lalalu Skin & Laser</title>
-  <meta
-    name="description"
-    content="Explore facials, hydrofacials, RF microneedling, BB Glow, and advanced laser treatments. Transparent pricing and easy online booking."
-  />
-  <link rel="canonical" href="https://lalaluskinlaser.com/services" />
-  <meta property="og:title" content="Services & Pricing | Lalalu Skin & Laser" />
-  <meta property="og:description" content="Facials, hydrofacials, RF microneedling, BB Glow, and laser. Transparent pricing." />
-  <meta property="og:url" content="https://lalaluskinlaser.com/services" />
-  <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
-</Helmet>
-
-
 const Services: React.FC = () => {
   useEffect(() => {
       // Scroll to the top when the component mounts
@@ -50,248 +36,192 @@ const Services: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen">
-       {/* Hero Section */}
-       <section className="relative bg-gradient-to-br from-[#d2b9e3] via-[#b4a1d3] to-lavender-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Professional treatments designed to help you achieve your skin goals
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      <Helmet>
+        <title>Services & Pricing | Facials, Microneedling, Laser | Lalalu Skin & Laser</title>
+        <meta
+          name="description"
+          content="Explore facials, HydraFacials, RF microneedling, BB Glow, and advanced laser treatments. Transparent pricing and easy online booking."
+        />
+        <link rel="canonical" href="https://lalaluskinlaser.com/services" />
+        <meta name="robots" content="index,follow" />
 
-      {/* Special Offers Banner */}
-      <section className="bg-gradient-to-r from-[#6a4c69] to-[#a085b4] text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-            <div>
-              <p className="font-semibold">💫 BOGO 20% Off</p>
-              <p className="text-sm opacity-90">Buy one service, get second 20% off</p>
-            </div>
-            <div>
-              <p className="font-semibold">✨ B2GO 50% off</p>
-              <p className="text-sm opacity-90">Buy two services, get the third 50% off</p>
-            </div>
-            <div>
-              <p className="font-semibold">💫 B3GO free</p>
-              <p className="text-sm opacity-90">Buy three services, get the fourth free</p>
-            </div>
-            <div>
-              <p className="font-semibold">✨ Add Dermaplaning or Face Cupping</p>
-              <p className="text-sm opacity-90">To any facial for free</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Lalalu Skin & Laser" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:title" content="Services & Pricing | Lalalu Skin & Laser" />
+        <meta property="og:description" content="Facials, HydraFacials, RF microneedling, BB Glow, and laser. Transparent pricing." />
+        <meta property="og:url" content="https://lalaluskinlaser.com/services" />
+        <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Lalalu Skin & Laser — Calgary" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* JSON-LD: breadcrumbs */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lalaluskinlaser.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://lalaluskinlaser.com/services" }
+          ]
+        })}</script>
+
+        {/* JSON-LD: list of services (name + URL + lowest price if available) */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": services.map((s, idx) => {
+            // compute a lowest price for tiers if present
+            const tierPrices = Array.isArray(s.tiers) ? s.tiers.map(t => Number(t.price)).filter(Number.isFinite) : [];
+            const lowest = tierPrices.length ? Math.min(...tierPrices) : (Number.isFinite(Number(s.price)) ? Number(s.price) : undefined);
+
+            const serviceJson: any = {
+              "@type": "Service",
+              "name": s.name,
+              "url": `https://lalaluskinlaser.com/services/${s.id}`
+            };
+            if (lowest != null) {
+              serviceJson.offers = {
+                "@type": "Offer",
+                "price": lowest,
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://lalaluskinlaser.com/book"
+              };
+            }
+            return {
+              "@type": "ListItem",
+              "position": idx + 1,
+              "item": serviceJson
+            };
+          })
+        })}</script>
+      </Helmet>
 
 
-      {/* Search + Category Filters */}
-      <section className="py-8 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <input
-            type="text"
-            placeholder="Search services..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full max-w-md mx-auto block mb-6 px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
-          />
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  selectedCategory === category.id
-                    ? 'bg-[#6a4c69] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-[#d2b9e3] hover:text-white'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {normalServices.map((service) => (
-            <Card key={service.id} hover className="overflow-hidden h-full flex flex-col">
-              <div className="p-6 flex flex-col flex-grow justify-between">
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-semibold text-gray-900 flex-1">
-                      {service.name}
-                    </h3>
-                    <div className="text-right ml-4">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {service.duration} min
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
-                    <ul className="space-y-1">
-                      {service.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-center text-sm text-gray-600">
-                          <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Footer area pinned to bottom */}
-                <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
-                  <p className="text-sm text-[#a085b4] font-medium">
-                    View availability on the <a href="/book" className="underline">booking page</a>
-                  </p>
-
-                  {/* If the service has tiers, show a left-aligned mini price list and NO right price block */}
-                  {service.tiers && service.tiers.length > 0 ? (
-                    <div className="space-y-3">
-                      <div className="space-y-1">
-                        {service.tiers.map((tier) => (
-                          <div key={tier.name} className="flex items-baseline justify-between text-sm">
-                            <span className="text-gray-700">{tier.name}</span>
-                            <span className="flex items-baseline gap-2">
-                              {typeof tier.originalPrice === 'number' && (
-                                <span className="text-gray-400 line-through">${tier.originalPrice}</span>
-                              )}
-                              <span className="font-semibold text-[#6a4c69]">${tier.price}</span>
-                              {typeof tier.originalPrice === 'number' && (
-                                <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
-                                  Sale
-                                </span>
-                              )}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <a
-                        href={`/services/${service.id}`}
-                        className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
-                      >
-                        <Link className="h-4 w-4 mr-2" />
-                        More Details
-                      </a>
-                    </div>
-                  ) : (
-                    // No tiers: keep your existing left button + right price/sale block
-                    <div className="flex items-center justify-between">
-                      <a
-                        href={`/services/${service.id}`}
-                        className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
-                      >
-                        <Link className="h-4 w-4 mr-2" />
-                        More Details
-                      </a>
-
-                      {service.originalPrice ? (
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
-                          <span className="text-lg font-bold text-red-500">${service.price}</span>
-                          <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
-                            Sale
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="text-lg font-bold text-[#6a4c69]">${service.price}</span>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-              </div>
-            </Card>
-          ))}
-          {filteredServices.length === 0 && (
-            <p className="text-center col-span-full text-gray-500">No services found.</p>
-          )}
-        </div>
-      </section>
-
-      
-      {/* new section */}
-      {/* Special full-width section (e.g., Body & Face Slimming) */}
-      {specialServices.length > 0 && (
-        <section className="pb-20 bg-gray-50">
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-[#d2b9e3] via-[#b4a1d3] to-lavender-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {specialServices.map((service) => (
-              <Card
-                key={service.id}
-                hover
-                className="overflow-hidden w-full border-2 border-[#6a4c69]/20 bg-gradient-to-r from-white via-[#f8f5fb] to-white"
-              >
-                <div className="p-8 md:p-10">
-                  {/* Header: big title + “Not a facial” badge */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div>
-                      <div className="inline-flex items-center gap-2 mb-3">
-                        <span className="inline-flex items-center rounded-full bg-[#6a4c69]/10 text-[#6a4c69] text-xs font-semibold px-3 py-1">
-                          Body & Face Slimming
-                        </span>
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Our Services
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Professional treatments designed to help you achieve your skin goals
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Special Offers Banner */}
+        <section className="bg-gradient-to-r from-[#6a4c69] to-[#a085b4] text-white py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+              <div>
+                <p className="font-semibold">💫 BOGO 20% Off</p>
+                <p className="text-sm opacity-90">Buy one service, get second 20% off</p>
+              </div>
+              <div>
+                <p className="font-semibold">✨ B2GO 50% off</p>
+                <p className="text-sm opacity-90">Buy two services, get the third 50% off</p>
+              </div>
+              <div>
+                <p className="font-semibold">💫 B3GO free</p>
+                <p className="text-sm opacity-90">Buy three services, get the fourth free</p>
+              </div>
+              <div>
+                <p className="font-semibold">✨ Add Dermaplaning or Face Cupping</p>
+                <p className="text-sm opacity-90">To any facial for free</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Search + Category Filters */}
+        <section className="py-8 bg-white border-b">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <input
+              type="text"
+              placeholder="Search services..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full max-w-md mx-auto block mb-6 px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+            />
+            <div className="flex flex-wrap justify-center gap-4">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                    selectedCategory === category.id
+                      ? 'bg-[#6a4c69] text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-[#d2b9e3] hover:text-white'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Grid */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {normalServices.map((service) => (
+              <Card key={service.id} hover className="overflow-hidden h-full flex flex-col">
+                <div className="p-6 flex flex-col flex-grow justify-between">
+                  <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-semibold text-gray-900 flex-1">
                         {service.name}
-                      </h2>
-                      <p className="mt-3 text-gray-600 max-w-3xl">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    <div className="text-right shrink-0">
-                      <div className="flex items-center justify-end text-sm text-gray-500">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {service.duration} min
+                      </h3>
+                      <div className="text-right ml-4">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {service.duration} min
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Benefits */}
-                  {service.benefits?.length > 0 && (
-                    <div className="mt-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">Benefits</h3>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                        {service.benefits.map((b, i) => (
-                          <li key={i} className="flex items-start text-sm text-gray-700">
-                            <Star className="h-3 w-3 text-[#6a4c69] mr-2 mt-1" />
-                            <span>{b}</span>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
+                      <ul className="space-y-1">
+                        {service.benefits.map((benefit, index) => (
+                          <li key={index} className="flex items-center text-sm text-gray-600">
+                            <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
+                            {benefit}
                           </li>
                         ))}
                       </ul>
                     </div>
-                  )}
+                  </div>
 
-                  {/* Tiers as a clear price table */}
-                  {service.tiers && service.tiers.length > 0 && (
-                    <div className="mt-8">
-                      <h3 className="font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
-                      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-                        <div className="divide-y divide-gray-100">
+                  {/* Footer area pinned to bottom */}
+                  <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
+                    <p className="text-sm text-[#a085b4] font-medium">
+                      View availability on the <a href="/book" className="underline">booking page</a>
+                    </p>
+
+                    {/* If the service has tiers, show a left-aligned mini price list and NO right price block */}
+                    {service.tiers && service.tiers.length > 0 ? (
+                      <div className="space-y-3">
+                        <div className="space-y-1">
                           {service.tiers.map((tier) => (
-                            <div
-                              key={tier.name}
-                              className="flex items-center justify-between px-4 py-3"
-                            >
-                              <span className="text-gray-800">{tier.name}</span>
+                            <div key={tier.name} className="flex items-baseline justify-between text-sm">
+                              <span className="text-gray-700">{tier.name}</span>
                               <span className="flex items-baseline gap-2">
                                 {typeof tier.originalPrice === 'number' && (
                                   <span className="text-gray-400 line-through">${tier.originalPrice}</span>
                                 )}
-                                <span className="font-semibold text-[#6a4c69]">
-                                  ${tier.price}
-                                </span>
+                                <span className="font-semibold text-[#6a4c69]">${tier.price}</span>
                                 {typeof tier.originalPrice === 'number' && (
                                   <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
                                     Sale
@@ -301,36 +231,161 @@ const Services: React.FC = () => {
                             </div>
                           ))}
                         </div>
-                      </div>
-                    </div>
-                  )}
 
-                  {/* CTAs */}
-                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                    <a
-                      href={`/services/${service.id}`}
-                      className="inline-flex items-center px-5 py-2.5 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
-                    >
-                      <Link className="h-4 w-4 mr-2" />
-                      More Details
-                    </a>
-                    <a
-                      href="/book"
-                      className="inline-flex items-center px-5 py-2.5 bg-[#6a4c69] text-white rounded-full font-semibold text-sm hover:brightness-110 transition-colors duration-200"
-                    >
-                      Book Now
-                    </a>
+                        <a
+                          href={`/services/${service.id}`}
+                          className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                        >
+                          <Link className="h-4 w-4 mr-2" />
+                          More Details
+                        </a>
+                      </div>
+                    ) : (
+                      // No tiers: keep your existing left button + right price/sale block
+                      <div className="flex items-center justify-between">
+                        <a
+                          href={`/services/${service.id}`}
+                          className="inline-flex items-center px-4 py-2 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                        >
+                          <Link className="h-4 w-4 mr-2" />
+                          More Details
+                        </a>
+
+                        {service.originalPrice ? (
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
+                            <span className="text-lg font-bold text-red-500">${service.price}</span>
+                            <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
+                              Sale
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-lg font-bold text-[#6a4c69]">${service.price}</span>
+                        )}
+                      </div>
+                    )}
                   </div>
+
                 </div>
               </Card>
             ))}
+            {filteredServices.length === 0 && (
+              <p className="text-center col-span-full text-gray-500">No services found.</p>
+            )}
           </div>
         </section>
-      )}
+
+        
+        {/* new section */}
+        {/* Special full-width section (e.g., Body & Face Slimming) */}
+        {specialServices.length > 0 && (
+          <section className="pb-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {specialServices.map((service) => (
+                <Card
+                  key={service.id}
+                  hover
+                  className="overflow-hidden w-full border-2 border-[#6a4c69]/20 bg-gradient-to-r from-white via-[#f8f5fb] to-white"
+                >
+                  <div className="p-8 md:p-10">
+                    {/* Header: big title + “Not a facial” badge */}
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                      <div>
+                        <div className="inline-flex items-center gap-2 mb-3">
+                          <span className="inline-flex items-center rounded-full bg-[#6a4c69]/10 text-[#6a4c69] text-xs font-semibold px-3 py-1">
+                            Body & Face Slimming
+                          </span>
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                          {service.name}
+                        </h2>
+                        <p className="mt-3 text-gray-600 max-w-3xl">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      <div className="text-right shrink-0">
+                        <div className="flex items-center justify-end text-sm text-gray-500">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {service.duration} min
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Benefits */}
+                    {service.benefits?.length > 0 && (
+                      <div className="mt-6">
+                        <h3 className="font-semibold text-gray-900 mb-2">Benefits</h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                          {service.benefits.map((b, i) => (
+                            <li key={i} className="flex items-start text-sm text-gray-700">
+                              <Star className="h-3 w-3 text-[#6a4c69] mr-2 mt-1" />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Tiers as a clear price table */}
+                    {service.tiers && service.tiers.length > 0 && (
+                      <div className="mt-8">
+                        <h3 className="font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
+                        <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+                          <div className="divide-y divide-gray-100">
+                            {service.tiers.map((tier) => (
+                              <div
+                                key={tier.name}
+                                className="flex items-center justify-between px-4 py-3"
+                              >
+                                <span className="text-gray-800">{tier.name}</span>
+                                <span className="flex items-baseline gap-2">
+                                  {typeof tier.originalPrice === 'number' && (
+                                    <span className="text-gray-400 line-through">${tier.originalPrice}</span>
+                                  )}
+                                  <span className="font-semibold text-[#6a4c69]">
+                                    ${tier.price}
+                                  </span>
+                                  {typeof tier.originalPrice === 'number' && (
+                                    <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
+                                      Sale
+                                    </span>
+                                  )}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* CTAs */}
+                    <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                      <a
+                        href={`/services/${service.id}`}
+                        className="inline-flex items-center px-5 py-2.5 border border-[#6a4c69] text-[#6a4c69] rounded-full font-semibold text-sm hover:bg-[#6a4c69] hover:text-white transition-colors duration-200"
+                      >
+                        <Link className="h-4 w-4 mr-2" />
+                        More Details
+                      </a>
+                      <a
+                        href="/book"
+                        className="inline-flex items-center px-5 py-2.5 bg-[#6a4c69] text-white rounded-full font-semibold text-sm hover:brightness-110 transition-colors duration-200"
+                      >
+                        Book Now
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
 
 
 
-    </div>
+      </div>
+    </>
   );
 };
 
