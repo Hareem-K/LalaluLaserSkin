@@ -38,7 +38,7 @@ const Services: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Services & Pricing | Facials, Microneedling, Laser | Lalalu Skin & Laser</title>
+        <title>Services & Pricing | Lalalu Skin & Laser</title>
         <meta
           name="description"
           content="Explore facials, HydraFacials, RF microneedling, BB Glow, and advanced laser treatments. Transparent pricing and easy online booking."

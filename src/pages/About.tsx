@@ -37,7 +37,7 @@ const About: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>About Lalalu Skin & Laser | Expert Aesthetic Care in Calgary</title>
+        <title>About Lalalu Skin & Laser | Lalalu Skin & Laser</title>
         <meta
           name="description"
           content="We deliver expert aesthetic care with premium products and modern equipment. Inclusive, professional, and results-driven."
