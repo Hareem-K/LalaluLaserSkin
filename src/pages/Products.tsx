@@ -236,7 +236,7 @@ const Products: React.FC = () => {
   return (
     <>
         <Helmet>
-            <title>Circadia Professional Skincare | Lalalu Skin & Laser (Calgary)</title>
+            <title>Circadia Professional Skincare | Lalalu Skin & Laser</title>
             <meta
                 name="description"
                 content="Learn how Circadia’s science-backed, barrier-friendly skincare pairs with Lalalu treatments. Explore client-loved categories and real transformations."

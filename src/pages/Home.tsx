@@ -97,7 +97,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Calgary Skin Care & Laser Clinic | Lalalu Skin & Laser</title>
+        <title>Lalalu Skin & Laser – Relax, Rejuvenate, Renew</title>
         <meta
           name="description"
           content="HydraFacials, microneedling (RF), laser skin treatments, and premium facials in Calgary. Book online at Lalalu Skin & Laser."
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Lalalu Skin & Laser" />
         <meta property="og:locale" content="en_CA" />
-        <meta property="og:title" content="Calgary Skin Care & Laser Clinic | Lalalu Skin & Laser" />
+        <meta property="og:title" content="Lalalu Skin & Laser – Relax, Rejuvenate, Renew" />
         <meta property="og:description" content="HydraFacials, microneedling (RF), laser skin treatments, and premium facials in Calgary. Book online at Lalalu Skin & Laser." />
         <meta property="og:url" content="https://lalaluskinlaser.com/" />
         <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />

@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Lalalu Skin & Laser (Calgary, AB)</title>
+        <title>Contact Us | Lalalu Skin & Laser</title>
         <meta
           name="description"
           content="Have questions or ready to book? Contact Lalalu Skin & Laser in Calgary. Open daily 11 AM–7 PM."

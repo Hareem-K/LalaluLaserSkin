@@ -10,7 +10,7 @@ const BookNow: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Book an Appointment | Lalalu Skin & Laser (Calgary)</title>
+        <title>Book an Appointment | Lalalu Skin & Laser</title>
         <meta
           name="description"
           content="Book your facial, HydraFacial, microneedling, or laser treatment online. Choose a time that works for you."
