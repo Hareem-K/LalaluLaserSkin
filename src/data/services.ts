@@ -265,7 +265,7 @@ export const services: Service[] = [
     id: 'slimming-treatment',
     name: 'Body & Face Slimming Treatment',
     price: 100, // base or starting price
-    duration: 80,
+    duration: 90,
     description: 'A non-invasive treatment that combines ultrasound cavitation, radiofrequency, and vacuum technologies to target stubborn fat, tighten skin, and sculpt both the body and face. By using gentle heat energy, it breaks down fat cells, stimulates collagen production, and improves circulation for smoother, firmer, and more defined results. For best results, a series of 10–12 sessions is required.',
     category: 'slimming',
     benefits: [
