@@ -5,6 +5,7 @@ export type ServiceTier = {
   description?: string; // will show in service detail page
 };
 
+// in ../types (where Service is defined)
 export interface Service {
   id: string;
   name: string;
@@ -14,7 +15,12 @@ export interface Service {
   description: string;
   category: 'facial' | 'laser' | 'treatment' | 'slimming';
   benefits: string[];
-  tiers?: ServiceTier[];
+  tiers?: Array<{
+    name: string;
+    price: number;
+    description?: string;
+    originalPrice?: number; // <-- add this
+  }>;
 }
 
 export interface Appointment {

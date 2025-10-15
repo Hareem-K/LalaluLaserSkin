@@ -19,7 +19,7 @@ export const services: Service[] = [
       'Fades hyperpigmentation and sun damage',
     ],
     tiers: [
-      { name: 'Microneedling',  price: 150, description: 'Classic microneedling to refine texture and minimize pores.' },
+      { name: 'Microneedling',  price: 100, originalPrice: 150, description: 'Classic microneedling to refine texture and minimize pores.' },
       { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
     ]
   },
@@ -58,7 +58,7 @@ export const services: Service[] = [
       'Restores a radiant, dewy glow'
     ],
     tiers: [
-      { name: 'Regular',  price: 150, description: 'Cleanse, exfoliate, extract, and hydrate for instant glow.' },
+      { name: 'Regular',  price: 80, originalPrice: 150, description: 'Cleanse, exfoliate, extract, and hydrate for instant glow.' },
       { name: 'Deluxe (Lymphatic Drainage)', price: 160, description: 'Includes lymphatic drainage to reduce puffiness and boost detox.' },
       { name: 'Platinum (Lip + Eye Boosters)', price: 200, description: 'Targets fine lines and dryness around lips and eyes.' },
     ]
@@ -97,7 +97,7 @@ export const services: Service[] = [
       'Smooths dullness and rough texture'
     ],
     tiers: [
-      { name: 'Salicylic Acid Peel', price: 95, description: 'Refines oily, acne-prone skin and clears congestion.' },
+      { name: 'Salicylic Acid Peel', price: 80, originalPrice: 95, description: 'Refines oily, acne-prone skin and clears congestion.' },
       { name: 'Glycolic Acid Peel',  price: 85, description: 'Brightens dull tone and smooths fine lines.' },
       { name: 'Vivid Gentle Peel', price: 75, description: 'Mild resurfacing for sensitive or first-time peel clients.' },
     ]
