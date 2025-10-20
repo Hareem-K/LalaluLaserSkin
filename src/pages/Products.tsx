@@ -236,48 +236,48 @@ const Products: React.FC = () => {
   return (
     <>
         <Helmet>
-            <title>Circadia Professional Skincare | Lalalu Skin & Laser</title>
-            <meta
-                name="description"
-                content="Learn how Circadia’s science-backed, barrier-friendly skincare pairs with Lalalu treatments. Explore client-loved categories and real transformations."
-            />
-            <link rel="canonical" href="https://lalaluskinlaser.com/products" />
-            <meta name="robots" content="index,follow" />
+          <title>Circadia Professional Skincare | Lalalu Skin & Laser</title>
+          <meta
+              name="description"
+              content="Learn how Circadia’s science-backed, barrier-friendly skincare pairs with Lalalu treatments. Explore client-loved categories and real transformations."
+          />
+          <link rel="canonical" href="https://lalaluskinlaser.com/products" />
+          <meta name="robots" content="index,follow" />
 
-            {/* Open Graph */}
-            <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="Lalalu Skin & Laser" />
-            <meta property="og:locale" content="en_CA" />
-            <meta property="og:title" content="Circadia Professional Skincare | Lalalu Skin & Laser" />
-            <meta property="og:description" content="Science-backed, barrier-friendly skincare paired with Lalalu treatments." />
-            <meta property="og:url" content="https://lalaluskinlaser.com/products" />
-            <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
-            <meta property="og:image:alt" content="Lalalu Skin & Laser — Circadia partnership" />
+          {/* Open Graph */}
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Lalalu Skin & Laser" />
+          <meta property="og:locale" content="en_CA" />
+          <meta property="og:title" content="Circadia Professional Skincare | Lalalu Skin & Laser" />
+          <meta property="og:description" content="Science-backed, barrier-friendly skincare paired with Lalalu treatments." />
+          <meta property="og:url" content="https://lalaluskinlaser.com/products" />
+          <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content="Lalalu Skin & Laser — Circadia partnership" />
 
-            {/* Twitter */}
-            <meta name="twitter:card" content="summary_large_image" />
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
 
-            {/* Breadcrumbs JSON-LD */}
-            <script type="application/ld+json">{JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lalaluskinlaser.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://lalaluskinlaser.com/products" }
-                ]
-            })}</script>
+          {/* Breadcrumbs JSON-LD */}
+          <script type="application/ld+json">{JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lalaluskinlaser.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://lalaluskinlaser.com/products" }
+              ]
+          })}</script>
 
-            {/* Optional WebPage JSON-LD */}
-            <script type="application/ld+json">{JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": "Circadia Professional Skincare",
-                "url": "https://lalaluskinlaser.com/products",
-                "description": "Circadia skincare at Lalalu Skin & Laser in Calgary."
-            })}</script>
-            </Helmet>
+          {/* Optional WebPage JSON-LD */}
+          <script type="application/ld+json">{JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Circadia Professional Skincare",
+              "url": "https://lalaluskinlaser.com/products",
+              "description": "Circadia skincare at Lalalu Skin & Laser in Calgary."
+          })}</script>
+        </Helmet>
 
         <div className="min-h-screen">
         {/* HERO: Circadia + Lalalu ombré with soft photo wash */}

@@ -61,7 +61,7 @@ const Home: React.FC = () => {
     {
       icon: <Clock className="h-8 w-8 text-[#6a4c69]" />,
       title: 'Flexible Hours',
-      description: 'Open daily from 11 AM to 7 PM to accommodate your busy schedule.'
+      description: 'Open Monday to Friday from 11AM – 7PM and weekends from 12PM – 5PM to fit your schedule.'
     },
     {
       icon: <Users className="h-8 w-8 text-[#6a4c69]" />,
@@ -345,80 +345,75 @@ const Home: React.FC = () => {
         </RevealSection>
 
         {/* Circadia Feature — photo background + overlay + logo + product shot */}
-        <RevealSection>
-          <section className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="relative overflow-hidden rounded-3xl">
-                {/* Background image with brand gradient overlay */}
-                <div
-                  className="absolute inset-0 bg-center bg-cover"
-                  style={{
-                    backgroundImage: "url('/Circadia/PreProFacial10.jpg')", // use any hero-y Circadia photo here
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E3D]/85 via-[#2E3F73]/70 to-[#6a4c69]/60" />
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-3xl">
+              {/* Background image with brand gradient overlay */}
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{
+                  backgroundImage: "url('/Circadia/PreProFacial10.jpg')", // use any hero-y Circadia photo here
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E3D]/85 via-[#2E3F73]/70 to-[#6a4c69]/60" />
 
-                {/* Content */}
-                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-8 md:p-12">
-                  {/* Left: logo + copy */}
-                  <div className="text-white">
-                    <img
-                      src="/Circadia/circadia-logo-white.png"
-                      alt="Circadia Professional Skincare"
-                      className="h-10 md:h-12 mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
-                      loading="lazy"
-                    />
-                    <h3 className="text-2xl md:text-3xl font-bold">We partner with Circadia®</h3>
-                    <p className="text-white/90 mt-3 max-w-xl">
-                      Clinical, professional-only formulations rooted in chronobiology, designed to respect the skin barrier 
-                      while delivering visible, lasting results.
-                    </p>
-                    <ul className="mt-5 space-y-2">
-                      <li className="flex items-start">
-                        <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
-                        Science-backed ingredients
-                      </li>
-                      <li className="flex items-start">
-                        <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
-                        Barrier-friendly, gentle actives
-                      </li>
-                      <li className="flex items-start">
-                        <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
-                        Professional-only protocols & home-care
-                      </li>
-                    </ul>
+              {/* Content */}
+              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-8 md:p-12">
+                {/* Left: logo + copy */}
+                <div className="text-white">
+                  <img
+                    src="/Circadia/circadia-logo-white.png"
+                    alt="Circadia Professional Skincare"
+                    className="h-10 md:h-12 mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
+                    loading="lazy"
+                  />
+                  <h3 className="text-2xl md:text-3xl font-bold">We partner with Circadia®</h3>
+                  <p className="text-white/90 mt-3 max-w-xl">
+                    Clinical, professional-only formulations rooted in chronobiology, designed to respect the skin barrier 
+                    while delivering visible, lasting results.
+                  </p>
+                  <ul className="mt-5 space-y-2">
+                    <li className="flex items-start">
+                      <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
+                      Science-backed ingredients
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
+                      Barrier-friendly, gentle actives
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mt-0.5 mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/15">✓</span>
+                      Professional-only protocols & home-care
+                    </li>
+                  </ul>
 
-                    <div className="mt-6">
-                      <Link to="/products">
-                        <Button size="lg" className="bg-white !text-[#0F1E3D] hover:bg-gray-100">
-                          Learn about Circadia
-                        </Button>
-                      </Link>
-                    </div>
+                  <div className="mt-6">
+                    <Link to="/products">
+                      <Button size="lg" className="bg-white !text-[#0F1E3D] hover:bg-gray-100">
+                        Learn about Circadia
+                      </Button>
+                    </Link>
                   </div>
+                </div>
 
-                  {/* Right: foreground product photo on glassy card */}
-                  <div className="flex justify-center md:justify-end">
-                    <Card className="bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-3 md:p-4 max-w-md w-full">
+                {/* Right: foreground product photo on glassy card */}
+                <div className="flex justify-center md:justify-end">
+                  <Card className="bg-white/90 rounded-2xl shadow-2xl p-3 md:p-4 max-w-md w-full">
+                    <div className="relative w-full aspect-[4/3]">
                       <img
-                        src="/Circadia/products-1.jpg" // swap to your favorite product lineup image
+                        src="/Circadia/products-1.jpg"
                         alt="Circadia products"
-                        loading="lazy"
-                        className="w-full h-64 md:h-80 object-cover rounded-xl"
+                        decoding="async"
+                        className="absolute inset-0 w-full h-full object-cover rounded-xl"
                       />
-                      {/* <div className="mt-3 grid grid-cols-3 gap-2">
-                        <img src="/Circadia/products-1.jpg" className="h-20 w-full object-cover rounded-lg" alt="" />
-                        <img src="/Circadia/products-2.jpg" className="h-20 w-full object-cover rounded-lg" alt="" />
-                        <img src="/Circadia/products-4.jpg" className="h-20 w-full object-cover rounded-lg" alt="" />
-                      </div> */}
-                    
-                    </Card>
-                  </div>
+                    </div>
+                  </Card>
                 </div>
               </div>
             </div>
-          </section>
-        </RevealSection>
+          </div>
+        </section>
+
 
 
         {/* CTA Section */}

@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
     {
       icon: <Clock className="h-6 w-6 text-[#6a4c69]" />,
       title: 'Hours',
-      details: ['Monday - Sunday', '11:00 AM - 7:00 PM']
+      details: ['Mon - Fri', '11:00 AM - 7:00 PM', 'Sat - Sun', '12:00 PM - 5:00 PM']
     }
   ];
 
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
         <title>Contact Us | Lalalu Skin & Laser</title>
         <meta
           name="description"
-          content="Have questions or ready to book? Contact Lalalu Skin & Laser in Calgary. Open daily 11 AM–7 PM."
+          content="Have questions or ready to book? Contact Lalalu Skin & Laser in Calgary."
         />
         <link rel="canonical" href="https://lalaluskinlaser.com/contact" />
         <meta name="robots" content="index,follow" />
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
         <meta property="og:site_name" content="Lalalu Skin & Laser" />
         <meta property="og:locale" content="en_CA" />
         <meta property="og:title" content="Contact Lalalu Skin & Laser" />
-        <meta property="og:description" content="Reach our Calgary clinic. Open daily 11 AM–7 PM." />
+        <meta property="og:description" content="Reach our Calgary med spa." />
         <meta property="og:url" content="https://lalaluskinlaser.com/contact" />
         <meta property="og:image" content="https://lalaluskinlaser.com/og-image.jpg" />
         <meta property="og:image:width" content="1200" />

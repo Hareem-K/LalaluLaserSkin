@@ -70,8 +70,10 @@ const BookNow: React.FC = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow">
                 <h2 className="text-xl font-bold mb-2 text-[#6a4c69]">Hours</h2>
-                <p className="text-gray-600">Monday – Sunday</p>
+                <p className="text-gray-600">Monday – Friday</p>
                 <p className="text-gray-600">11:00 AM – 7:00 PM</p>
+                <p className="text-gray-600">Saturday – Sunday</p>
+                <p className="text-gray-600">12:00 PM – 5:00 PM</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow">
                 <h2 className="text-xl font-bold mb-2 text-[#6a4c69]">Before You Book</h2>

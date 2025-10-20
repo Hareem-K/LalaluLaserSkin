@@ -217,7 +217,7 @@ export const services: Service[] = [
   },
   {
     id: 'led-facial',
-    name: 'LED Facial',
+    name: 'LED Light Therapy Facial',
     price: 100,
     originalPrice: 125,
     duration: 60,
