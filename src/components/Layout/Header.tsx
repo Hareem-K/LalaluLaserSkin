@@ -98,6 +98,17 @@ const Header: React.FC = () => {
                   >
                     Products
                   </Link>
+                  <Link
+                    to="/blog"
+                    className={`block px-4 py-2 text-sm ${
+                      isActive('/blog')
+                        ? 'text-[#6a4c69] bg-[#f6f0fa]'
+                        : 'text-gray-700 hover:bg-[#f6f0fa] hover:text-[#6a4c69]'
+                    }`}
+                    onClick={() => setIsAboutOpen(false)}
+                  >
+                    Blog
+                  </Link>
                 </div>
               )}
             </div>
@@ -230,6 +241,16 @@ const Header: React.FC = () => {
                     }}
                   >
                     Products
+                  </Link>
+                  <Link
+                    to="/blog"
+                    className="px-4 py-2 text-sm rounded-md text-gray-700 hover:text-[#6a4c69] hover:bg-[#f6f0fa]"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsAboutOpenMobile(false);
+                    }}
+                  >
+                    Blog
                   </Link>
                 </div>
               )}

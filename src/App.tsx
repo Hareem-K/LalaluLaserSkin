@@ -14,6 +14,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import ConcernPage from './pages/concerns/ConcernPage';
+import Blog from './pages/Blog';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
                   <Route path="/services/products" element={<ProductList />} />
                   <Route path="/services/products/:productId" element={<ProductDetail />} />
                   <Route path="/concerns/:slug" element={<ConcernPage />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<Blog />} />
                 </Routes>
               </main>
               <Footer />
