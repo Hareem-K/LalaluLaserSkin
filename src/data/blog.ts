@@ -108,7 +108,7 @@ export const blogPosts: BlogPost[] = [
       { type: 'paragraph', text: 'Adult acne can be frustrating and often feels unexpected. Unlike teen acne, adult acne is usually due to stress or hormonal imbalances. Our laser services provide a targeted solution that addresses these unique triggers. By reducing oil production and inflammation, laser treatments offer a long-lasting solution.' },
       { type: 'paragraph', text: 'Picture waking up to clearer skin every day. Many adults see a dramatic improvement after just a few sessions. Its time to challenge the assumption that acne is only a teenage problem. Let us help you find the relief you have been searching for.' },
 
-      { type: 'instagram', url: 'https://www.instagram.com/p/DQA3HytiZsd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', title: 'Acne tips from our IG' },
+      { type: 'instagram', url: 'https://www.instagram.com/p/DQChu7jlC92/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==', title: 'Acne tips from our IG' },
 
       { type: 'heading', level: 2, text: 'Anti-Aging Treatments for Youthful Skin' },
       { type: 'image', src: '/blog/antiaging.png', alt: 'Anti-Aging Treatments', aspect: 'landscape' },
