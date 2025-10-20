@@ -61,4 +61,4 @@ src/
 
 ## 📬 Contact  
 
-For inquiries or bookings, visit: [lalalulaserskin.com](https://lalalulaserskin.com)  
+For inquiries or bookings, visit: [lalaluskinlaser.com](https://lalaluskinlaser.com/)  
