@@ -182,7 +182,7 @@ const Home: React.FC = () => {
               <p className="text-xl opacity-90">Take advantage of these exclusive deals</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+              {/* <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
                 <h3 className="text-xl font-bold mb-2">BOGO 20% Off</h3>
                 <p className="mb-4">Buy one service, get the second 20% off</p>
                 <div className="text-2xl font-bold">All Services</div>
@@ -196,6 +196,27 @@ const Home: React.FC = () => {
                 <h3 className="text-xl font-bold mb-2">B3GO Free</h3>
                 <p className="mb-4">Buy three services, get the fourth one free</p>
                 <div className="text-2xl font-bold">All Services</div>
+                
+              </Card> */}
+              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
+                <p className="mb-4">Morpheus8 RF + HydraFacial</p>
+                <div className="text-2xl font-bold">$150</div>
+                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
+              </Card>
+
+              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
+                <p className="mb-4">HydraFacial + Red Light Therapy</p>
+                <div className="text-2xl font-bold">$100</div>
+                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
+              </Card>
+
+              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
+                <p className="mb-4">All regular facials</p>
+                <div className="text-2xl font-bold">20% Off</div>
+                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
               </Card>
               <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
                 <h3 className="text-xl font-bold mb-2">Free Add-On</h3>
@@ -257,7 +278,7 @@ const Home: React.FC = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Morpheus8 Microneedling</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Morpheus8 RF Microneedling</h3>
                     <p className="text-gray-600 mb-4">Tighten skin and smooth texture with RF-powered microneedling.</p>
                     <div className="flex justify-between items-center">
                       <Link to="/book">

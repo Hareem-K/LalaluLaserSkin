@@ -20,14 +20,13 @@ export const services: Service[] = [
     ],
     tiers: [
       { name: 'Microneedling',  price: 150, description: 'Classic microneedling to refine texture and minimize pores.' },
-      { name: 'Morpheus8 Microneedling with RF', price: 100, originalPrice: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
+      { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
     ]
   },
   {
     id: 'microdermabrasion',
     name: 'Microdermabrasion',
-    price: 100,
-    originalPrice: 150,
+    price: 150,
     duration: 60,
     description: 'A gentle, non-invasive treatment using diamond-tip exfoliation to buff away dead skin cells and unclog pores. This process stimulates natural skin renewal, boosts collagen production, and enhances absorption of skincare products. Over time, it helps fade discoloration, smooth uneven texture, and restore a healthy, radiant glow.',
     category: 'treatment',
@@ -58,7 +57,7 @@ export const services: Service[] = [
       'Restores a radiant, dewy glow'
     ],
     tiers: [
-      { name: 'Regular',  price: 80, originalPrice: 150, description: 'Cleanse, exfoliate, extract, and hydrate for instant glow.' },
+      { name: 'Regular',  price: 150, description: 'Cleanse, exfoliate, extract, and hydrate for instant glow.' },
       { name: 'Deluxe (Lymphatic Drainage)', price: 160, description: 'Includes lymphatic drainage to reduce puffiness and boost detox.' },
       { name: 'Platinum (Lip + Eye Boosters)', price: 200, description: 'Targets fine lines and dryness around lips and eyes.' },
     ]
@@ -97,15 +96,15 @@ export const services: Service[] = [
       'Smooths dullness and rough texture'
     ],
     tiers: [
-      { name: 'Salicylic Acid Peel', price: 80, originalPrice: 95, description: 'Refines oily, acne-prone skin and clears congestion.' },
-      { name: 'Glycolic Acid Peel',  price: 85, description: 'Brightens dull tone and smooths fine lines.' },
-      { name: 'Vivid Gentle Peel', price: 75, description: 'Mild resurfacing for sensitive or first-time peel clients.' },
+      { name: 'Salicylic Acid Peel', price: 100, description: 'Refines oily, acne-prone skin and clears congestion.' },
+      { name: 'Glycolic Acid Peel',  price: 100, description: 'Brightens dull tone and smooths fine lines.' },
+      { name: 'Vivid Gentle Peel', price: 100, description: 'Mild resurfacing for sensitive or first-time peel clients.' },
     ]
   },
   {
     id: 'bb-glow',
     name: 'BB Glow',
-    price: 100,
+    price: 120,
     originalPrice: 130,
     duration: 70,
     description: 'A semi-permanent skin treatment that uses tinted serums and microneedling technology to create a flawless, radiant finish. BB Glow helps even skin tone, minimize imperfections, and improve texture while delivering anti-aging benefits for a naturally glowing complexion that lasts.',
@@ -133,12 +132,13 @@ export const services: Service[] = [
       'Reduces signs of aging', 
       'Hydrates and smooths the skin', 
       'Minimizes inflammation', 
-      'Provides antioxidant protection']
+      'Provides antioxidant protection'],
+      badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'skin-brightening',
     name: 'Skin Brightening Facial',
-    price: 100,
+    price: 104,
     originalPrice: 130,
     duration: 60,
     description: 'A targeted facial designed to fade dark spots, reduce hyperpigmentation, and restore balance to uneven skin tone. This treatment uses brightening serums and gentle exfoliation to reveal a clearer, more radiant complexion while promoting long-term skin clarity and glow.',
@@ -150,7 +150,8 @@ export const services: Service[] = [
       'Improves overall skin clarity',
       'Enhances natural glow',
       'Promotes long-term radiance'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'classic-facial',
@@ -166,12 +167,13 @@ export const services: Service[] = [
       'Restores skin balance and hydration',
       'Improves overall skin health',
       'Promotes relaxation and stress relief'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'glow-facial',
     name: 'Glow Facial',
-    price: 100,
+    price: 104,
     originalPrice: 130,
     duration: 60,
     description: 'A revitalizing facial treatment that deeply hydrates, smooths, and refreshes the skin. The Glow Facial is designed to instantly brighten your complexion, improve texture, and leave you with a healthy, luminous finish.',
@@ -182,7 +184,8 @@ export const services: Service[] = [
       'Smooths and refines skin texture',
       'Enhances natural glow',
       'Leaves skin refreshed and revitalized'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'deep-cleansing',
@@ -198,12 +201,13 @@ export const services: Service[] = [
       'Balances excess oil production',
       'Improves skin clarity and smoothness',
       'Helps prevent future breakouts'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'acne-treatment',
     name: 'Acne Treatment Facial',
-    price: 100,
+    price: 104,
     originalPrice: 130,
     duration: 75,
     description: 'A targeted facial designed for acne-prone and congested skin. This treatment uses deep cleansing, exfoliation, and soothing professional-grade products to reduce breakouts, calm inflammation, and promote clearer, healthier skin over time.',
@@ -213,8 +217,39 @@ export const services: Service[] = [
       'Calms redness and inflammation',
       'Helps prevent future breakouts',
       'Unclogs pores for clearer, smoother skin'
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
+  },
+  {
+    id: 'customized-back-facial',
+    name: 'Customized Back Facial',
+    price: 150,
+    duration: 60,
+    description: 'A customized back treatment that deeply cleanses, exfoliates, and hydrates to restore clarity and smoothness. Ideal for treating back acne or simply refreshing the skin. Optional add-ons like Morpheus8 RF microneedling, enzyme peel, or microdermabrasion enhance results.',
+    category: 'facial',
+    benefits: [
+      'Deeply cleanses pores and removes buildup',
+      'Targets congestion and back acne (“bacne”)',
+      'Exfoliates dead skin cells and smooths texture',
+      'Hydrates and nourishes the back for a healthy glow',
+      'Restores comfort and confidence in your skin'
+    ],
+    tiers: [
+      {
+        name: 'Bacne Solution',
+        price: 150,
+        description:
+          'A clarifying back facial focused on reducing acne, congestion, and inflammation. Includes steam cleanse, exfoliation, extractions, antibacterial mask, and soothing hydration. Optional add-ons: Morpheus8 RF Microneedling (+$50), Enzyme Peel, or Microdermabrasion for advanced resurfacing and acne control.'
+      },
+      {
+        name: 'Signature Back Refresh',
+        price: 120,
+        description:
+          'A rejuvenating back facial designed for smoother, hydrated, and radiant skin. Includes deep cleansing, exfoliation, mask therapy, and nourishing moisture finish. Optional add-ons: Enzyme Peel or Microdermabrasion to boost glow and refine texture.'
+      }
     ]
   },
+
   {
     id: 'led-facial',
     name: 'LED Light Therapy Facial',
@@ -222,18 +257,19 @@ export const services: Service[] = [
     originalPrice: 125,
     duration: 60,
     description: 'A non-invasive light therapy that uses different wavelengths of LED light to target specific skin concerns. Customized to your needs, it can reduce acne, calm inflammation, stimulate collagen, and rejuvenate the skin for a healthier, more radiant complexion.',
-    category: 'treatment',
+    category: 'facial',
     benefits: [
       'Calms redness and inflammation',
       'Stimulates collagen and elasticity',
       'Promotes acne healing and prevention',
       'Provides anti-aging and skin rejuvenation benefits'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'oxygen-facial',
     name: 'Oxygen Facial',
-    price: 100,
+    price: 104,
     originalPrice: 130,
     duration: 60,
     description: 'A revitalizing treatment that infuses oxygen and nutrient-rich serums deep into the skin. It delivers instant hydration, boosts circulation, and supports collagen production, leaving your complexion refreshed, plump, and glowing.',
@@ -244,12 +280,13 @@ export const services: Service[] = [
       'Promotes collagen and elastin for rejuvenation',
       'Detoxifies by killing bacteria and reducing redness',
       'Clears and refines pores to reduce congestion'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
   },
   {
     id: 'gold-facial',
     name: 'Gold Facial',
-    price: 100,
+    price: 104,
     originalPrice: 130,
     duration: 60,
     description: 'A luxurious 24k gold-infused facial that stimulates collagen and elastin production, improves circulation, and protects against environmental damage. This indulgent treatment helps reduce signs of aging while leaving the skin radiant, firm, and rejuvenated.',
@@ -259,7 +296,9 @@ export const services: Service[] = [
       'Reduces fine lines and wrinkles',
       'Enhances radiance and brightens complexion',
       'Provides antioxidant and anti-inflammatory protection'
-    ]
+    ],
+    badges: [{ text: '20% OFF', color: 'red' }]
+
   },
   {
     id: 'slimming-treatment',
