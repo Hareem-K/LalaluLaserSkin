@@ -6,6 +6,33 @@ import Button from '../components/UI/Button';
 import { ArrowLeft, Star } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
+// Inline pill beside price: show first custom badge if present, else "Sale" when discounted
+const InlinePill = ({
+  badges,
+  discounted,
+}: {
+  badges?: { text: string; color?: 'red' | 'lavender' | 'green' | 'gray' }[];
+  discounted: boolean;
+}) => {
+  const b = badges?.[0];
+  if (!b && !discounted) return null;
+
+  const colorClass =
+    b?.color === 'lavender'
+      ? 'bg-purple-50 text-purple-700'
+      : b?.color === 'green'
+      ? 'bg-green-50 text-green-700'
+      : b?.color === 'gray'
+      ? 'bg-gray-100 text-gray-600'
+      : 'bg-red-50 text-red-600';
+
+  return (
+    <span className={`ml-2 inline-block rounded-full text-[10px] font-semibold px-1.5 py-0.5 ${colorClass}`}>
+      {b?.text ?? 'Sale'}
+    </span>
+  );
+};
+
 type Aftercare =
   | string[]
   | {
@@ -101,6 +128,18 @@ const aftercareById: Record<string, Aftercare> = {
     'Always apply broad-spectrum SPF 30+ daily, even on cloudy days.',
     'Stay hydrated to maintain that fresh glow!'
   ],
+  'customized-back-facial': [
+    'Avoid tight clothing or friction on the treated area for 24–48 hours to prevent irritation.',
+    'Do not work out, sweat excessively, or use saunas/steam rooms for 24 hours after treatment.',
+    'Avoid sun exposure and tanning for at least 48 hours; apply SPF 30–50 if skin will be exposed.',
+    'Use a gentle, fragrance-free cleanser and keep the area hydrated with a non-comedogenic moisturizer.',
+    'Avoid exfoliating products, scrubs, retinol, or acids for 5–7 days, especially if you had an enzyme peel or microdermabrasion add-on.',
+    'Do not pick, scratch, or squeeze any areas that may purge or feel bumpy — allow the skin to heal naturally.',
+    'Shower after 12–24 hours with lukewarm water and mild soap (no body scrubs or loofahs).',
+    'Change into clean, loose-fitting clothes after your treatment to avoid bacteria transfer from fabric or sweat.',
+    'Drink plenty of water to support detoxification and skin healing.',
+    'If irritation, redness, or dryness occurs, apply a soothing, unscented lotion or aloe gel and avoid active ingredients until skin feels calm.'
+  ],
   'led-facial': [
     'Avoid heavy makeup for 12 hours to let your skin breathe.',
     'Avoid hot showers, saunas, or steam rooms for 24 hours.',
@@ -142,7 +181,6 @@ const aftercareById: Record<string, Aftercare> = {
       'Avoid facial waxing, threading, or laser on the area for 7 days',
       'Stay well hydrated and avoid alcohol for 48 hours',
     ],
-
     general: [
       'Typical result range: ~1–2.5 inches loss per area within ~4 weeks (results vary by individual and treatment plan).',
       'For lasting results, maintain a balanced diet and regular exercise; follow your customized session plan (often a series of 10–12 sessions).',
@@ -157,7 +195,6 @@ const aftercareById: Record<string, Aftercare> = {
       'Malignant tumours.',
     ],
   },
-
 };
 
 const ServiceDetail: React.FC = () => {
@@ -192,12 +229,9 @@ const ServiceDetail: React.FC = () => {
   // derive a price for previews / schema
   const tierPrices = Array.isArray(service.tiers) ? service.tiers.map(t => Number(t.price)).filter(Boolean) : [];
   const lowestPrice = tierPrices.length ? Math.min(...tierPrices) : Number(service.price);
-  // near the top of ServiceDetail, after you have `service`
-  type Tier = { name: string; price: number; originalPrice?: number; description?: string };
-
-  const tiers: Tier[] = Array.isArray(service.tiers) ? service.tiers : [];
+  type Tier = { name: string; price: number; originalPrice?: number; description?: string; badges?: {text: string; color?: 'red' | 'lavender' | 'green' | 'gray'}[] };
+  const tiers: Tier[] = Array.isArray(service.tiers) ? service.tiers as Tier[] : [];
   const hasTiers = tiers.length > 0;
-
 
   return (
     <>
@@ -278,7 +312,6 @@ const ServiceDetail: React.FC = () => {
         })}</script>
       </Helmet>
 
-
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="mb-4 -mt-2">
@@ -292,7 +325,6 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           <Card className="p-8 flex flex-col">
-            
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{service.name}</h1>
 
             <div className="mb-6">
@@ -313,35 +345,37 @@ const ServiceDetail: React.FC = () => {
               </ul>
             </div>
 
-            {/* Footer with button left, price right */}
             {/* CTA + Pricing */}
             <div className="mt-auto">
-              {service.tiers && service.tiers.length > 0 ? (
+              {hasTiers ? (
                 <>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
                   <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
                     <div className="divide-y divide-gray-100">
-                      {service.tiers.map((tier) => (
-                        <div key={tier.name} className="px-4 py-4">
-                          <div className="flex items-baseline justify-between">
-                            <span className="text-gray-900 font-medium">{tier.name}</span>
-                            <span className="flex items-baseline gap-2">
-                              {typeof tier.originalPrice === 'number' && (
-                                <span className="text-gray-400 line-through">${tier.originalPrice}</span>
-                              )}
-                              <span className="text-lg font-semibold text-[#6a4c69]">${tier.price}</span>
-                              {typeof tier.originalPrice === 'number' && (
-                                <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
-                                  Sale
+                      {tiers.map((tier) => {
+                        const discounted =
+                          typeof tier.originalPrice === 'number' &&
+                          tier.originalPrice > tier.price;
+                        return (
+                          <div key={tier.name} className="px-4 py-4">
+                            <div className="flex items-baseline justify-between">
+                              <span className="text-gray-900 font-medium">{tier.name}</span>
+                              <span className="flex items-baseline gap-2">
+                                {discounted && (
+                                  <span className="text-gray-400 line-through">${tier.originalPrice}</span>
+                                )}
+                                <span className={`text-lg font-semibold ${discounted ? 'text-red-500' : 'text-[#6a4c69]'}`}>
+                                  ${tier.price}
                                 </span>
-                              )}
-                            </span>
+                                <InlinePill badges={tier.badges} discounted={discounted} />
+                              </span>
+                            </div>
+                            {tier.description && (
+                              <p className="mt-2 text-sm text-gray-600">{tier.description}</p>
+                            )}
                           </div>
-                          {tier.description && (
-                            <p className="mt-2 text-sm text-gray-600">{tier.description}</p>
-                          )}
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -357,26 +391,28 @@ const ServiceDetail: React.FC = () => {
                     <Button className="mt-4">Book Now</Button>
                   </Link>
 
-                  {typeof service.originalPrice === 'number' ? (
-                    <div className="flex items-baseline gap-2 mt-4">
-                      <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
-                      <span className="text-2xl font-bold text-red-500">${service.price}</span>
-                      <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
-                        Sale
-                      </span>
-                    </div>
-                  ) : (
-                    <span className="text-2xl font-bold text-[#6a4c69] mt-4">
-                      ${service.price}
-                    </span>
-                  )}
+                  {(() => {
+                    const discounted =
+                      typeof service.originalPrice === 'number' &&
+                      service.originalPrice > service.price;
+                    return (
+                      <div className="flex items-baseline gap-2 mt-4">
+                        {discounted && (
+                          <span className="text-sm text-gray-400 line-through">
+                            ${service.originalPrice}
+                          </span>
+                        )}
+                        <span className={`text-2xl font-bold ${discounted ? 'text-red-500' : 'text-[#6a4c69]'}`}>
+                          ${service.price}
+                        </span>
+                        <InlinePill badges={service.badges} discounted={discounted} />
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
             </div>
-
-
           </Card>
-
 
           <Card className="p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Aftercare Instructions</h2>

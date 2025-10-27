@@ -4,6 +4,35 @@ import { services } from '../data/services';
 import Card from '../components/UI/Card';
 import { Helmet } from 'react-helmet-async';
 
+// Inline pill beside price: show first custom badge if present, else "Sale" when discounted
+const InlinePill = ({
+  badges,
+  discounted,
+}: {
+  badges?: { text: string; color?: 'red' | 'lavender' | 'green' | 'gray' }[];
+  discounted: boolean;
+}) => {
+  const b = badges?.[0];
+  if (!b && !discounted) return null;
+
+  const colorClass =
+    b?.color === 'lavender'
+      ? 'bg-purple-50 text-purple-700'
+      : b?.color === 'green'
+      ? 'bg-green-50 text-green-700'
+      : b?.color === 'gray'
+      ? 'bg-gray-100 text-gray-600'
+      : 'bg-red-50 text-red-600';
+
+  return (
+    <span
+      className={`ml-1 inline-block rounded-full text-[10px] font-semibold px-1.5 py-0.5 ${colorClass}`}
+    >
+      {b?.text ?? 'Sale'}
+    </span>
+  );
+};
+
 const Services: React.FC = () => {
   useEffect(() => {
       // Scroll to the top when the component mounts
@@ -18,22 +47,26 @@ const Services: React.FC = () => {
     { id: 'facial', name: 'Facials' },
     { id: 'laser', name: 'Laser Treatments' },
     { id: 'treatment', name: 'Specialty Treatments' },
-    { id: 'slimming', name: 'Body Slimming' }
+    { id: 'slimming', name: 'Body Slimming' },
   ];
 
   const filteredServices = services.filter((service) => {
-    const matchesCategory = selectedCategory === 'all' || service.category === selectedCategory;
-    const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      selectedCategory === 'all' || service.category === selectedCategory;
+    const matchesSearch =
+      service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      service.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   // Put any special full-width service IDs here
   const specialServiceIds = new Set(['slimming-treatment']);
-
-  const normalServices = filteredServices.filter(s => !specialServiceIds.has(s.id));
-  const specialServices = filteredServices.filter(s => specialServiceIds.has(s.id));
-
+  const normalServices = filteredServices.filter(
+    (s) => !specialServiceIds.has(s.id)
+  );
+  const specialServices = filteredServices.filter((s) =>
+    specialServiceIds.has(s.id)
+  );
 
   return (
     <>
@@ -107,15 +140,14 @@ const Services: React.FC = () => {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#d2b9e3] via-[#b4a1d3] to-lavender-50 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Our Services
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Professional treatments designed to help you achieve your skin goals
-              </p>
-            </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Our Services
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Professional treatments designed to help you achieve your skin
+              goals
+            </p>
           </div>
         </section>
 
@@ -123,17 +155,41 @@ const Services: React.FC = () => {
         <section className="bg-gradient-to-r from-[#6a4c69] to-[#a085b4] text-white py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-              <div>
+              {/* <div>
                 <p className="font-semibold">💫 BOGO 20% Off</p>
-                <p className="text-sm opacity-90">Buy one service, get second 20% off</p>
+                <p className="text-sm opacity-90">
+                  Buy one service, get second 20% off
+                </p>
               </div>
               <div>
                 <p className="font-semibold">✨ B2GO 50% off</p>
-                <p className="text-sm opacity-90">Buy two services, get the third 50% off</p>
+                <p className="text-sm opacity-90">
+                  Buy two services, get the third 50% off
+                </p>
               </div>
               <div>
                 <p className="font-semibold">💫 B3GO free</p>
-                <p className="text-sm opacity-90">Buy three services, get the fourth free</p>
+                <p className="text-sm opacity-90">
+                  Buy three services, get the fourth free
+                </p>
+              </div> */}
+              <div>
+                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="text-sm opacity-90">
+                  Morpheus8 RF + HydraFacial - $150
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="text-sm opacity-90">
+                  HydraFacial + Red Light Therapy - $100
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="text-sm opacity-90">
+                  All regular facials 20% off
+                </p>
               </div>
               <div>
                 <p className="font-semibold">✨ Add Dermaplaning or Face Cupping</p>
@@ -142,7 +198,6 @@ const Services: React.FC = () => {
             </div>
           </div>
         </section>
-
 
         {/* Search + Category Filters */}
         <section className="py-8 bg-white border-b">
@@ -174,7 +229,7 @@ const Services: React.FC = () => {
 
         {/* Services Grid */}
         <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
             {normalServices.map((service) => (
               <Card key={service.id} hover className="overflow-hidden h-full flex flex-col">
                 <div className="p-6 flex flex-col flex-grow justify-between">
@@ -190,12 +245,14 @@ const Services: React.FC = () => {
                         </div>
                       </div>
                     </div>
+
                     <p className="text-gray-600 mb-4">{service.description}</p>
+
                     <div className="mb-4">
                       <h4 className="font-semibold text-gray-900 mb-2">Benefits:</h4>
                       <ul className="space-y-1">
-                        {service.benefits.map((benefit, index) => (
-                          <li key={index} className="flex items-center text-sm text-gray-600">
+                        {service.benefits.map((benefit, i) => (
+                          <li key={i} className="flex items-center text-sm text-gray-600">
                             <Star className="h-3 w-3 text-[#6a4c69] mr-2 flex-shrink-0" />
                             {benefit}
                           </li>
@@ -204,13 +261,15 @@ const Services: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Footer area pinned to bottom */}
+                  {/* Footer */}
                   <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
                     <p className="text-sm text-[#a085b4] font-medium">
-                      View availability on the <a href="/book" className="underline">booking page</a>
+                      View availability on the{' '}
+                      <a href="/book" className="underline">
+                        booking page
+                      </a>
                     </p>
 
-                    {/* If the service has tiers, show a left-aligned mini price list and NO right price block */}
                     {service.tiers && service.tiers.length > 0 ? (
                       <div className="space-y-3">
                         <div className="space-y-1">
@@ -218,15 +277,29 @@ const Services: React.FC = () => {
                             <div key={tier.name} className="flex items-baseline justify-between text-sm">
                               <span className="text-gray-700">{tier.name}</span>
                               <span className="flex items-baseline gap-2">
-                                {typeof tier.originalPrice === 'number' && (
-                                  <span className="text-gray-400 line-through">${tier.originalPrice}</span>
-                                )}
-                                <span className="font-semibold text-[#6a4c69]">${tier.price}</span>
-                                {typeof tier.originalPrice === 'number' && (
-                                  <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
-                                    Sale
-                                  </span>
-                                )}
+                                {typeof tier.originalPrice === 'number' &&
+                                  tier.originalPrice > tier.price && (
+                                    <span className="text-gray-400 line-through">
+                                      ${tier.originalPrice}
+                                    </span>
+                                  )}
+                                <span
+                                  className={`font-semibold ${
+                                    typeof tier.originalPrice === 'number' &&
+                                    tier.originalPrice > tier.price
+                                      ? 'text-red-500'
+                                      : 'text-[#6a4c69]'
+                                  }`}
+                                >
+                                  ${tier.price}
+                                </span>
+                                <InlinePill
+                                  badges={tier.badges}
+                                  discounted={
+                                    typeof tier.originalPrice === 'number' &&
+                                    tier.originalPrice > tier.price
+                                  }
+                                />
                               </span>
                             </div>
                           ))}
@@ -241,7 +314,6 @@ const Services: React.FC = () => {
                         </a>
                       </div>
                     ) : (
-                      // No tiers: keep your existing left button + right price/sale block
                       <div className="flex items-center justify-between">
                         <a
                           href={`/services/${service.id}`}
@@ -251,32 +323,40 @@ const Services: React.FC = () => {
                           More Details
                         </a>
 
-                        {service.originalPrice ? (
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-sm text-gray-400 line-through">${service.originalPrice}</span>
-                            <span className="text-lg font-bold text-red-500">${service.price}</span>
-                            <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-xs font-semibold px-2 py-0.5">
-                              Sale
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="text-lg font-bold text-[#6a4c69]">${service.price}</span>
-                        )}
+                        <div className="flex items-baseline gap-2">
+                          {typeof service.originalPrice === 'number' &&
+                            service.originalPrice > service.price && (
+                              <span className="text-sm text-gray-400 line-through">
+                                ${service.originalPrice}
+                              </span>
+                            )}
+                          <span
+                            className={`text-lg font-bold ${
+                              typeof service.originalPrice === 'number' &&
+                              service.originalPrice > service.price
+                                ? 'text-red-500'
+                                : 'text-[#6a4c69]'
+                            }`}
+                          >
+                            ${service.price}
+                          </span>
+                          <InlinePill
+                            badges={service.badges}
+                            discounted={
+                              typeof service.originalPrice === 'number' &&
+                              service.originalPrice > service.price
+                            }
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
-
                 </div>
               </Card>
             ))}
-            {filteredServices.length === 0 && (
-              <p className="text-center col-span-full text-gray-500">No services found.</p>
-            )}
           </div>
         </section>
 
-        
-        {/* new section */}
         {/* Special full-width section (e.g., Body & Face Slimming) */}
         {specialServices.length > 0 && (
           <section className="pb-20 bg-gray-50">
@@ -288,20 +368,12 @@ const Services: React.FC = () => {
                   className="overflow-hidden w-full border-2 border-[#6a4c69]/20 bg-gradient-to-r from-white via-[#f8f5fb] to-white"
                 >
                   <div className="p-8 md:p-10">
-                    {/* Header: big title + “Not a facial” badge */}
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div>
-                        <div className="inline-flex items-center gap-2 mb-3">
-                          <span className="inline-flex items-center rounded-full bg-[#6a4c69]/10 text-[#6a4c69] text-xs font-semibold px-3 py-1">
-                            Body & Face Slimming
-                          </span>
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                           {service.name}
                         </h2>
-                        <p className="mt-3 text-gray-600 max-w-3xl">
-                          {service.description}
-                        </p>
+                        <p className="text-gray-600 max-w-3xl">{service.description}</p>
                       </div>
 
                       <div className="text-right shrink-0">
@@ -312,7 +384,6 @@ const Services: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Benefits */}
                     {service.benefits?.length > 0 && (
                       <div className="mt-6">
                         <h3 className="font-semibold text-gray-900 mb-2">Benefits</h3>
@@ -327,10 +398,11 @@ const Services: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Tiers as a clear price table */}
                     {service.tiers && service.tiers.length > 0 && (
                       <div className="mt-8">
-                        <h3 className="font-semibold text-gray-900 mb-3">Packages & Pricing</h3>
+                        <h3 className="font-semibold text-gray-900 mb-3">
+                          Packages & Pricing
+                        </h3>
                         <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
                           <div className="divide-y divide-gray-100">
                             {service.tiers.map((tier) => (
@@ -340,17 +412,29 @@ const Services: React.FC = () => {
                               >
                                 <span className="text-gray-800">{tier.name}</span>
                                 <span className="flex items-baseline gap-2">
-                                  {typeof tier.originalPrice === 'number' && (
-                                    <span className="text-gray-400 line-through">${tier.originalPrice}</span>
-                                  )}
-                                  <span className="font-semibold text-[#6a4c69]">
+                                  {typeof tier.originalPrice === 'number' &&
+                                    tier.originalPrice > tier.price && (
+                                      <span className="text-gray-400 line-through">
+                                        ${tier.originalPrice}
+                                      </span>
+                                    )}
+                                  <span
+                                    className={`font-semibold ${
+                                      typeof tier.originalPrice === 'number' &&
+                                      tier.originalPrice > tier.price
+                                        ? 'text-red-500'
+                                        : 'text-[#6a4c69]'
+                                    }`}
+                                  >
                                     ${tier.price}
                                   </span>
-                                  {typeof tier.originalPrice === 'number' && (
-                                    <span className="ml-1 inline-block rounded-full bg-red-50 text-red-600 text-[10px] font-semibold px-1.5 py-0.5">
-                                      Sale
-                                    </span>
-                                  )}
+                                  <InlinePill
+                                    badges={tier.badges}
+                                    discounted={
+                                      typeof tier.originalPrice === 'number' &&
+                                      tier.originalPrice > tier.price
+                                    }
+                                  />
                                 </span>
                               </div>
                             ))}
@@ -359,7 +443,6 @@ const Services: React.FC = () => {
                       </div>
                     )}
 
-                    {/* CTAs */}
                     <div className="mt-8 flex flex-col sm:flex-row gap-3">
                       <a
                         href={`/services/${service.id}`}
@@ -381,9 +464,6 @@ const Services: React.FC = () => {
             </div>
           </section>
         )}
-
-
-
       </div>
     </>
   );

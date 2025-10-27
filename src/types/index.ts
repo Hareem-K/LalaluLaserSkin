@@ -1,8 +1,16 @@
+export type BadgeColor = 'red' | 'lavender' | 'green' | 'gray';
+
+export interface Badge {
+  text: string;              // e.g., "20% OFF", "New", "Model Rate"
+  color?: BadgeColor;        // optional; defaults to 'red'
+}
+
 export type ServiceTier = {
   name: string;
   price: number;
   originalPrice?: number; // optional: supports crossed-out sales per tier
   description?: string; // will show in service detail page
+  badges?: Badge[];
 };
 
 // in ../types (where Service is defined)
@@ -15,12 +23,8 @@ export interface Service {
   description: string;
   category: 'facial' | 'laser' | 'treatment' | 'slimming';
   benefits: string[];
-  tiers?: Array<{
-    name: string;
-    price: number;
-    description?: string;
-    originalPrice?: number; // <-- add this
-  }>;
+  tiers?: ServiceTier[];
+  badges?: Badge[];
 }
 
 export interface Appointment {
