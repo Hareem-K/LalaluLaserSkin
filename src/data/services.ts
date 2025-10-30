@@ -19,8 +19,8 @@ export const services: Service[] = [
       'Fades hyperpigmentation and sun damage',
     ],
     tiers: [
-      { name: 'Microneedling',  price: 150, description: 'Classic microneedling to refine texture and minimize pores.' },
-      { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'RF + microneedling for deeper tightening and collagen remodeling.' },
+      { name: 'Microneedling',  price: 150, description: 'Classic microneedling treatment that boosts collagen production, refines uneven texture, and minimizes the look of pores for smoother, healthier skin.' },
+      { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'An advanced treatment that combines radiofrequency energy with microneedling to tighten and lift the skin, smooth fine lines, and remodel collagen at a deeper level for long-lasting rejuvenation.' },
     ]
   },
   {
