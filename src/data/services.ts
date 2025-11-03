@@ -19,8 +19,24 @@ export const services: Service[] = [
       'Fades hyperpigmentation and sun damage',
     ],
     tiers: [
-      { name: 'Microneedling',  price: 150, description: 'Classic microneedling treatment that boosts collagen production, refines uneven texture, and minimizes the look of pores for smoother, healthier skin.' },
-      { name: 'Morpheus8 Microneedling with RF', price: 250, description: 'An advanced treatment that combines radiofrequency energy with microneedling to tighten and lift the skin, smooth fine lines, and remodel collagen at a deeper level for long-lasting rejuvenation.' },
+      {
+        name: 'Microneedling',
+        price: 150,
+        description:
+          'A collagen-stimulating treatment that refines texture, minimizes pores, and enhances overall skin clarity. Using fine microchannels, it encourages the skin’s natural repair process to improve tone, firmness, and radiance. Optional neck add-on to target crepiness and early signs of sagging.'
+      },
+      {
+        name: 'Morpheus8 Microneedling with RF',
+        price: 250,
+        description:
+          'Combining microneedling with radiofrequency energy, Morpheus8 delivers heat deep into the dermis to remodel collagen and tighten skin at a structural level. It effectively targets fine lines, sagging, enlarged pores, and acne scars. Optional neck add-on to firm and lift the delicate neck area for a smoother, more contoured appearance.'
+      },
+      {
+        name: 'Morpheus8 Microneedling with RF (Body)',
+        price: '150–450' as unknown as number,
+        description:
+          'A specialized RF microneedling treatment designed to rejuvenate the skin on the body. By delivering fractional radiofrequency energy deep into the tissue, it tightens loose skin, fades stretch marks, and smooths the appearance of surgical or injury-related scars. Ideal for improving tone and firmness on areas such as the abdomen, thighs, arms, and knees.'
+      }
     ]
   },
   {
