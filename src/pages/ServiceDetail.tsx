@@ -46,8 +46,8 @@ const aftercareById: Record<string, Aftercare> = {
   microneedling: [
     'Expect mild redness & swelling for 1-3 days, possibly light flaking.',
     'Avoid direct sun exposure & heat (saunas, workouts) for 48 hours.',
-    'No makeup for 24-48 hours.',
-    'Use a gentle, hydrating cleanser & moisturizer, avoid actives (retinol, glycolic, salicylic acid) for 7 days.',
+    'Do not apply makeup for 24–48 hours.',
+    'Use a gentle, hydrating cleanser & moisturizer; avoid actives such as retinol, glycolic, and salicylic acid for 7 days.',
     'Apply SPF 50 daily — your skin is extra sensitive to the sun.',
     'Do not pick or peel flaking skin.'
   ],
