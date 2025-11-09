@@ -60,7 +60,7 @@ export const services: Service[] = [
     id: 'hydrafacial',
     name: 'HydraFacial',
     price: 150,
-    duration: 90,
+    duration: 60,
     description: 'The HydraFacial is a multi-step treatment that deeply cleanses, gently exfoliates, and hydrates the skin using advanced vortex-fusion technology. Customized serums and boosters target your specific concerns—such as fine lines, acne, or hyperpigmentation—leaving your skin instantly smoother, plumper, and glowing with long-lasting protection.',
     category: 'facial',
     benefits: [
