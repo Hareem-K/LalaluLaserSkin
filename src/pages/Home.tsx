@@ -199,24 +199,24 @@ const Home: React.FC = () => {
                 
               </Card> */}
               <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
-                <p className="mb-4">Morpheus8 RF + HydraFacial</p>
+                <h3 className="text-xl font-bold mb-2">Black Friday Special</h3>
+                <p className="mb-4">HydraFacial + Microneedling</p>
                 <div className="text-2xl font-bold">$150</div>
-                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
+                <p className="mt-2 text-sm opacity-90">Nov 14 – Nov 30 • <a href="/book" className="underline">Book Now</a></p>
               </Card>
 
               <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
-                <p className="mb-4">HydraFacial + Red Light Therapy</p>
+                <h3 className="text-xl font-bold mb-2">Black Friday Special</h3>
+                <p className="mb-4">Morpheus8 RF (Face + Neck)</p>
+                <div className="text-2xl font-bold">$200</div>
+                <p className="mt-2 text-sm opacity-90">Nov 14 – Nov 30 • <a href="/book" className="underline">Book Now</a></p>
+              </Card>
+
+              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
+                <h3 className="text-xl font-bold mb-2">Black Friday Special</h3>
+                <p className="mb-4">HydraFacial + LED Light Therapy</p>
                 <div className="text-2xl font-bold">$100</div>
-                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
-              </Card>
-
-              <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
-                <h3 className="text-xl font-bold mb-2">Halloween Special</h3>
-                <p className="mb-4">All regular facials</p>
-                <div className="text-2xl font-bold">20% Off</div>
-                <p className="mt-2 text-sm opacity-90">Oct 30 – Nov 7 • <a href="/book" className="underline">Book Now</a></p>
+                <p className="mt-2 text-sm opacity-90">Nov 14 – Nov 30 • <a href="/book" className="underline">Book Now</a></p>
               </Card>
               <Card className="bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 text-center">
                 <h3 className="text-xl font-bold mb-2">Free Add-On</h3>

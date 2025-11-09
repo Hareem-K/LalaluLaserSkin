@@ -174,21 +174,21 @@ const Services: React.FC = () => {
                 </p>
               </div> */}
               <div>
-                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="font-semibold">💫 Black Friday Special</p>
                 <p className="text-sm opacity-90">
-                  Morpheus8 RF + HydraFacial - $150
+                  HydraFacial + Microneedling - $150
                 </p>
               </div>
               <div>
-                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="font-semibold">💫 Black Friday Special</p>
                 <p className="text-sm opacity-90">
-                  HydraFacial + Red Light Therapy - $100
+                  Morpheus8 RF (Face + Neck) - $200
                 </p>
               </div>
               <div>
-                <p className="font-semibold">💫 Halloween Special</p>
+                <p className="font-semibold">💫 Black Friday Special</p>
                 <p className="text-sm opacity-90">
-                  All regular facials 20% off
+                  HydraFacial + LED Light Therapy - $100
                 </p>
               </div>
               <div>
