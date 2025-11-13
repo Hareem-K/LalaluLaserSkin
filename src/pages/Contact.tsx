@@ -414,8 +414,8 @@ const Contact: React.FC = () => {
                   What is your cancellation policy?
                 </h3>
                 <p className="text-gray-600">
-                  We require 24-hour notice for cancellations. Late cancellations or no-shows 
-                  may be subject to a fee.
+                  We kindly ask for 24-hour notice for cancellations so we can offer the spot to another client. 
+                  Repeated last-minute cancellations or no-shows may result in limited future booking availability.
                 </p>
               </Card>
             </div>

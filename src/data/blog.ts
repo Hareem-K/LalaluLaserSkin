@@ -74,16 +74,16 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    id: 'laser-top-5',
-    slug: 'top-5-skin-concerns-laser',
-    title: 'Top 5 Skin Concerns Solved with Professional Laser Care at Lalalu Skin & Laser',
+    id: 'laser-top-3',
+    slug: 'top-3-skin-concerns-laser',
+    title: 'Top 3 Skin Concerns Solved with Professional Laser Care at Lalalu Skin & Laser',
     excerpt:
       'From acne to pigmentation and fine lines, here’s how our laser treatments deliver real, visible results.',
     tags: ['laser', 'acne', 'pigmentation', 'anti-aging'],
     createdAt: '2025-10-19',
     readingMinutes: 10,
     blocks: [
-      { type: 'paragraph', text: 'You’ve tried creams and quick fixes, but your skin concerns keep coming back. At Lalalu Skin & Laser, we offer laser skin treatments that tackle stubborn issues like acne, pigmentation, and wrinkles with real results. Let’s explore the top 5 skin concerns we solve, so you can feel confident and refreshed in your own skin. Book your personalized consultation today to start your journey towards healthier, glowing skin!' },
+      { type: 'paragraph', text: 'You’ve tried creams and quick fixes, but your skin concerns keep coming back. At Lalalu Skin & Laser, we offer laser skin treatments that tackle stubborn issues like acne, pigmentation, and wrinkles with real results. Let’s explore the top 3 skin concerns we solve, so you can feel confident and refreshed in your own skin. Book your personalized consultation today to start your journey towards healthier, glowing skin!' },
       
       { type: 'heading', level: 2, text: 'Acne Solutions with Laser Care' },
       { type: 'image', src: '/blog/acne.png', alt: 'Acne Treatments', aspect: 'landscape' },
@@ -162,7 +162,102 @@ export const blogPosts: BlogPost[] = [
 
       // Example Instagram tie-in for acne:
     ]
+  },
+
+  {
+    id: 'national-retinol-day',
+    slug: 'national-retinol-day-guide',
+    title: 'National Retinol Day: How to Use Retinol Safely and Effectively',
+    excerpt:
+      'Retinol is one of the most powerful ingredients in skincare — but only when used correctly. Here’s your detailed guide on the most common mistakes, how to avoid irritation, and how to build a routine your skin will actually tolerate.',
+    tags: ['retinol', 'anti-aging', 'skincare-education'],
+    createdAt: '2025-11-08',
+    readingMinutes: 8,
+    coverImage: '/blog/retinol.png',
+
+    blocks: [
+      { type: 'paragraph', text: 'Retinol has become one of the most talked-about skincare ingredients — and for good reason. It’s one of the most effective, research-backed solutions for smoothing fine lines, fading pigmentation, refining texture, and supporting long-term skin health. But here’s what most people don’t realize: retinol works best when used **properly**.' },
+
+      { type: 'paragraph', text: 'Many clients come in frustrated because retinol left them dry, irritated, or breaking out more than before. The truth is, irritation usually isn’t caused by retinol itself — it’s caused by how it’s used. In honour of **National Retinol Day**, this guide breaks down the most common mistakes (and exactly how to avoid them), so you can enjoy all the benefits without damaging your skin barrier.' },
+
+      { type: 'instagram', url: 'https://www.instagram.com/reel/DQw5wdkCTx-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', title: 'Don’t Make This Mistake When Using Retinol' },
+
+      { type: 'heading', level: 2, text: '1. Starting Too Strong, Too Fast' },
+      { type: 'paragraph', text: 'One of the biggest reasons people struggle with retinol is beginning with a high percentage or applying it every single night from day one. Retinol accelerates cell turnover — which is exactly what gives you smoother, brighter skin — but doing too much too quickly can overwhelm your skin barrier.' },
+      { type: 'paragraph', text: 'This often leads to flaking, redness, tightness, irritation, and occasionally breakouts that feel like “purging.” While mild purging can be normal, **burning and visibly peeling skin are signs of barrier impairment**, not progress.' },
+      { type: 'list', items: [
+        'Start with 2–3 nights per week for at least 2 weeks.',
+        'Use a low to moderate strength (0.2–0.5%) if you’re new to retinol.',
+        'Only increase frequency once your skin feels consistently comfortable.',
+        'If irritation appears, reduce use temporarily instead of pushing through it.'
+      ]},
+
+      { type: 'heading', level: 2, text: '2. Applying Retinol on Damp Skin' },
+      { type: 'paragraph', text: 'Many active ingredients work beautifully on damp skin — but **retinol is not one of them**. Damp skin absorbs products deeper and faster, which can make retinol significantly more irritating.' },
+      { type: 'paragraph', text: 'Instead, always apply retinol to completely dry skin. This slows down absorption just enough to reduce irritation while still allowing the retinol to do its job effectively.' },
+      { type: 'list', items: [
+        'After cleansing, wait 100% until the skin feels dry to the touch.',
+        'If your skin tends to react easily, apply a thin layer of moisturizer first (“buffering”).'
+      ]},
+
+      { type: 'heading', level: 2, text: '3. Skipping Moisturizer' },
+      { type: 'paragraph', text: 'Retinol and hydration must go hand in hand. Without enough moisture, your skin barrier can’t keep up with the increased turnover, leading to dryness, irritation, and sensitivity.' },
+      { type: 'paragraph', text: 'Moisturizer doesn’t dilute retinol — in fact, it often helps you tolerate it better and achieve more consistent results.' },
+      { type: 'list', items: [
+        'Apply moisturizer after retinol every time.',
+        'If you’re sensitive, apply moisturizer both before and after (“the sandwich method”).',
+        'Choose hydrating, barrier-supportive ingredients like ceramides, squalane, hyaluronic acid, and peptides.'
+      ]},
+
+      { type: 'heading', level: 2, text: '4. Mixing Retinol with Exfoliants or Other Strong Actives' },
+      { type: 'paragraph', text: 'Pairing retinol with AHAs, BHAs, scrubs, vitamin C (L-ascorbic acid), benzoyl peroxide, or harsh exfoliating tools is one of the most common mistakes people make. Doubling up on strong actives can **over-exfoliate** the skin and cause redness, stinging, and barrier damage.' },
+      { type: 'paragraph', text: 'Retinol is already doing the heavy lifting — it doesn’t need help from multiple actives in the same routine.' },
+      { type: 'list', items: [
+        'Use exfoliating acids on nights you are NOT using retinol.',
+        'Avoid pairing benzoyl peroxide with retinol unless recommended by a dermatologist.',
+        'Stick to gentle cleansers and hydrating products on retinol nights.'
+      ]},
+
+      { type: 'heading', level: 2, text: '5. Forgetting SPF — The Most Important Step' },
+      { type: 'image', src: '/Circadia/CircaShieldWater2.jpg', alt: 'sunscreen', aspect: 'landscape' },
+      { type: 'paragraph', text: 'Retinol increases photosensitivity, meaning your skin becomes more vulnerable to UV damage, even if you don’t see an immediate reaction. Sun exposure while using retinol can worsen pigmentation, cause redness, and undo the progress retinol is working so hard to create.' },
+      { type: 'paragraph', text: 'Sunscreen is essential, not optional, when retinol is part of your routine.' },
+      { type: 'list', items: [
+        'Use SPF 30–50 every single morning.',
+        'Reapply if you’re outside for extended periods.',
+        'Choose a broad-spectrum sunscreen to protect against both UVA and UVB.'
+      ]},
+
+      { type: 'heading', level: 2, text: 'How to Build a Beginner-Friendly Retinol Routine' },
+      { type: 'paragraph', text: 'If you’re new to retinol or have had trouble using it in the past, follow this gentle introductory routine:' },
+      { type: 'list', items: [
+        'Cleanser → let skin fully dry',
+        'Moisturizer (optional buffering layer)',
+        'Retinol (pea-sized amount)',
+        'Moisturizer on top',
+        'SPF every morning'
+      ]},
+
+      { type: 'paragraph', text: 'From here, you can gradually increase frequency or strength based on how well your skin tolerates it. Consistency is far more important than strength — slow and steady always wins with retinol.' },
+
+      { type: 'heading', level: 2, text: 'If You Overdid It — Here’s What to Do' },
+      { type: 'paragraph', text: 'Overuse happens to everyone at some point. If your skin feels tight, flaky, or irritated, take a short break and focus on healing.' },
+      { type: 'list', items: [
+        'Pause retinol for 3–7 days.',
+        'Use gentle cleansers and rich moisturizers.',
+        'Look for ingredients like ceramides, niacinamide, panthenol, and hyaluronic acid.',
+        'Avoid exfoliants until skin feels normal again.',
+        'Continue daily SPF to protect your healing barrier.'
+      ]},
+
+      { type: 'heading', level: 2, text: 'The Bottom Line' },
+      { type: 'image', src: '/blog/retinol2.png', alt: 'sunscreen', aspect: 'landscape' },
+      { type: 'paragraph', text: 'Retinol is one of the most powerful anti-aging and skin-smoothing ingredients available — but the key to success is patience and proper technique. When used correctly, retinol supports long-term skin health, refined texture, and radiant glow without compromising your barrier.' },
+      { type: 'paragraph', text: 'Start slow, nourish your skin, protect it during the day, and let retinol work with your skin — not against it.' }
+    ]
   }
+
+
 ];
 
 // Utility: newest first
