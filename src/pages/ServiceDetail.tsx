@@ -36,9 +36,12 @@ const InlinePill = ({
 type Aftercare =
   | string[]
   | {
-      body: string[];
-      face: string[];
+      body?: string[];
+      face?: string[];
       general?: string[];
+      sun?: string[];
+      activities?: string[];
+      whenToSeekHelp?: string[];
       contraindications?: string[];
     };
 
@@ -72,13 +75,31 @@ const aftercareById: Record<string, Aftercare> = {
     'Minor dryness & flaking is normal — do not pick or scrub.',
     'Always wear SPF 50 daily to maintain your even glow.'
   ],
-  'chemical-peels': [
-    'Mild redness, tightness, and peeling expected over 3-7 days.',
-    'Avoid makeup until skin settles, ideally 24-48 hours.',
-    'No picking, peeling, or exfoliating.',
-    'Apply hydrating products and SPF 50 daily.',
-    'Avoid strenuous exercise, saunas, and sun exposure for 48 hours.'
-  ],
+  'chemical-peels': {
+    general: [
+      'Mild redness, tightness, and peeling or flaking may occur over 3–7 days, depending on the peel strength.',
+      'Do not pick, peel, or scrub flaking skin — allow it to shed naturally.',
+      'Avoid makeup for 24–48 hours until the skin calms.',
+      'Keep the skin well-hydrated with a gentle moisturizer 2–3 times daily.',
+      'Use a gentle, non-active cleanser for 5–7 days.',
+      'Avoid exfoliants, retinol, AHAs/BHAs, scrubs, or strong actives for 5–7 days.',
+    ],
+    sun: [
+      'Apply SPF 50 every morning — this is mandatory after chemical peels.',
+      'Avoid direct sun exposure for at least 1 week.',
+      'Reapply sunscreen every 2–3 hours if outdoors.',
+    ],
+    activities: [
+      'Avoid sweating, strenuous exercise, saunas, and steam rooms for 48 hours.',
+      'Avoid swimming pools or hot tubs for 48 hours to prevent irritation and bacteria exposure.',
+      'Do not wax, thread, or shave the area for 7 days.',
+      'Avoid hot showers touching the treated area for 24 hours.',
+    ],
+    whenToSeekHelp: [
+      'Contact us if you experience excessive redness, significant swelling, unusual discomfort, or signs of a reaction.',
+      'Very light peeling is normal — but blistering is not. Reach out immediately if this occurs.',
+    ]
+  },
   dermaplaning: [
     'Your skin may feel extra smooth & sensitive.',
     'Avoid exfoliants & active ingredients (retinol, acids) for 3-5 days.',
@@ -455,6 +476,43 @@ const ServiceDetail: React.FC = () => {
                     </ul>
                   </div>
                 )}
+                
+                {/* Sun Protection */}
+                {'sun' in (entry as any) && (entry as any).sun?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Sun Protection</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).sun.map((tip: string, idx: number) => (
+                        <li key={`sun-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Activities to Avoid */}
+                {'activities' in (entry as any) && (entry as any).activities?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Activities to Avoid</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).activities.map((tip: string, idx: number) => (
+                        <li key={`activities-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* When to Seek Help */}
+                {'whenToSeekHelp' in (entry as any) && (entry as any).whenToSeekHelp?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">When to Seek Help</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      {(entry as any).whenToSeekHelp.map((tip: string, idx: number) => (
+                        <li key={`help-${idx}`}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
 
                 {/* Contraindications */}
                 {'contraindications' in (entry as any) && (entry as any).contraindications?.length > 0 && (
