@@ -48,11 +48,12 @@ type Aftercare =
 const aftercareById: Record<string, Aftercare> = {
   microneedling: [
     'Expect mild redness & swelling for 1-3 days, possibly light flaking.',
-    'Avoid direct sun exposure & heat (saunas, workouts) for 48 hours.',
+    'Avoid direct sun exposure & heat (saunas, workouts) for at least 48-72 hours.',
     'Do not apply makeup for 24–48 hours.',
-    'Use a gentle, hydrating cleanser & moisturizer; avoid actives such as retinol, glycolic, and salicylic acid for 7 days.',
-    'Apply SPF 50 daily — your skin is extra sensitive to the sun.',
-    'Do not pick or peel flaking skin.'
+    'Use a gentle, hydrating cleanser & moisturizer; avoid actives such as retinol, glycolic, and salicylic acid for at least 7 days.',
+    'Apply SPF 50 daily and avoid direct sun exposure — your skin is extra sensitive to the sun.',
+    'Do not pick or peel flaking skin.',
+    'Complete healing generally takes 2-3 weeks.'
   ],
   microdermabrasion: [
     'Expect slight pinkness; will subside in a few hours.',
@@ -81,8 +82,8 @@ const aftercareById: Record<string, Aftercare> = {
       'Do not pick, peel, or scrub flaking skin — allow it to shed naturally.',
       'Avoid makeup for 24–48 hours until the skin calms.',
       'Keep the skin well-hydrated with a gentle moisturizer 2–3 times daily.',
-      'Use a gentle, non-active cleanser for 5–7 days.',
-      'Avoid exfoliants, retinol, AHAs/BHAs, scrubs, or strong actives for 5–7 days.',
+      'Use a gentle, non-active cleanser for 7-10 days.',
+      'Avoid exfoliants, retinol, AHAs/BHAs, scrubs, or strong actives for 7-10 days, or until the skin has fully healed.',
     ],
     sun: [
       'Apply SPF 50 every morning — this is mandatory after chemical peels.',
@@ -90,10 +91,10 @@ const aftercareById: Record<string, Aftercare> = {
       'Reapply sunscreen every 2–3 hours if outdoors.',
     ],
     activities: [
-      'Avoid sweating, strenuous exercise, saunas, and steam rooms for 48 hours.',
-      'Avoid swimming pools or hot tubs for 48 hours to prevent irritation and bacteria exposure.',
-      'Do not wax, thread, or shave the area for 7 days.',
-      'Avoid hot showers touching the treated area for 24 hours.',
+      'Avoid sweating, strenuous exercise, saunas, and steam rooms for at least 48 hours.',
+      'Avoid swimming pools or hot tubs for at least 48 hours to prevent irritation and bacteria exposure.',
+      'Do not wax, thread, or shave the area for at least 7-14 days.',
+      'Avoid hot showers touching the treated area for at least 24-72 hours, and potentially up to a week. Use lukewarm water.',
     ],
     whenToSeekHelp: [
       'Contact us if you experience excessive redness, significant swelling, unusual discomfort, or signs of a reaction.',
@@ -476,7 +477,7 @@ const ServiceDetail: React.FC = () => {
                     </ul>
                   </div>
                 )}
-                
+
                 {/* Sun Protection */}
                 {'sun' in (entry as any) && (entry as any).sun?.length > 0 && (
                   <div className="mb-6">
