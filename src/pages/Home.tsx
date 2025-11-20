@@ -45,6 +45,28 @@ const RevealSection: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   );
 };
 
+const ReadMore: React.FC<{ text: string }> = ({ text }) => {
+  const [expanded, setExpanded] = React.useState(false);
+  const limit = 300; // characters before cutting off (change as needed)
+
+  if (text.length <= limit) return <p>"{text}"</p>;
+
+  return (
+    <div>
+      <p>
+        "{expanded ? text : text.slice(0, limit) + '...'}"
+      </p>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-[#6a4c69] font-medium mt-2 underline"
+      >
+        {expanded ? 'Read Less' : 'Read More'}
+      </button>
+    </div>
+  );
+};
+
+
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -77,18 +99,18 @@ const Home: React.FC = () => {
 
   const testimonials = [
     {
-      name: 'Saima J.',
-      text: 'Cozy place with exceptional service! Aasia explained every step of the process and did an excellent job with my face! My first ever hydra facial with her and she made me feel so comfortable. My skin feels rejuvenated. I have already booked my next appointment with her for Derma-skin Brasion followed by hydra facial.',
+      name: 'Renata J.',
+      text: 'I had a wonderful experience at Lalalu Skin & Laser for my Morpheus8 RF Microneedling treatment. Asia was extremely knowledgeable and made me feel comfortable throughout the entire appointment. She explained every step clearly and even offered helpful advice for my hair concerns. I really appreciated the extra massage she provided, such a thoughtful touch that made the experience even better. The salon is beautiful and clean, and I loved that there was easy, convenient parking available, which made the visit stress-free. I will definitely be coming back, and I highly recommend Asia to my friends!',
       rating: 5
     },
     {
-      name: 'Tabbasum A.',
-      text: 'Best esthetian in NW. Aasia is full of knowledge with experience of 4+ years. She have best knowledge about microneedling. I used to go to her past 1 year.',
+      name: 'Mariya Z.',
+      text: 'I had an absolutely exceptional HydraFacial experience! From start to finish, the expert was not only incredibly skilled but also took the time to explain each step of the process in detail. Every product used was introduced with a clear explanation of its purpose and benefits, which made me feel both informed and confident in the treatment. What really stood out was the depth of knowledge shared about skin health — I learned so much about my own skin type, common issues, and practical ways to improve it. It felt more like a personalized skin consultation than just a facial, and I left feeling refreshed, educated, and glowing! Highly recommend if youre looking for results, professionalism, and a truly knowledgeable skincare expert. Will definitely be returning!',
       rating: 5
     },
     {
-      name: 'Hareem K.',
-      text: 'I’ve had a few microneedling sessions here and I can honestly say I see such a big difference in my skin. My pigmentation has noticeably faded, my texture feels smoother, and my overall complexion just looks healthier and more even. I’m so happy with the results and excited to continue seeing improvements with every treatment!',
+      name: 'Verified Client.',
+      text: 'Hats off to the details on the body and face slimming treatment by Asia! She is so kind and gentle, plus explains every procedure along the journey! I have had 7 sessions for my stomach and 2 for face slimming. She has the best discounts on body contouring. Asia has deep knowledge of the treatment and uses gentle heat energy and ultrasound cavitation with radio frequency to break down the fat cells build over the years. I have lost almost 4 kgs since we started the treatment and 3 inches of my hanging belly! Overall very happy customer and will try to get my love handles slimming treatment done next.',
       rating: 5
 
     }
@@ -356,7 +378,9 @@ const Home: React.FC = () => {
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
+                  <div className="text-gray-600 mb-4 italic">
+                    <ReadMore text={testimonial.text} />
+                  </div>
                   <p className="font-semibold text-gray-900">- {testimonial.name}</p>
                 </Card>
               ))}
